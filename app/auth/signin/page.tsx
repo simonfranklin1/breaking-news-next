@@ -31,6 +31,7 @@ const SignInPage = () => {
             if(res.error) {
                 toast.error("Senha ou email incorretos");
             } else if(res.ok) {
+                toast.success("Login realizado com sucesso");
                 router.push("/");
             }
         }

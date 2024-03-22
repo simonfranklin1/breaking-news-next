@@ -3,6 +3,7 @@ import NextAuth from "next-auth"
 import CredentialsProvider from "next-auth/providers/credentials";
 import { Session } from "next-auth";
 import { connectToDataBase } from "@/utils/conn";
+import bcrypt from "bcryptjs";
 
 const handler = NextAuth({
     session: {
@@ -21,34 +22,31 @@ const handler = NextAuth({
                     return null
                 }
 
-                try {
-                    const response = await fetch("https://breaking-news-60gx7b5e5-simon-franklins-projects.vercel.app/api/user/signin", {
-                        method: "POST",
-                        body: JSON.stringify(credentials),
-                        headers: { "Content-Type": "application/json" }
-                    });
+                await connectToDataBase();
 
+                const user = await User.findOne({ email: credentials.email }).select("+password");
 
-                    if (!response.ok) return null;
+                if (!user) {
+                    return null
+                }
 
-                    const data = await response.json();
+                const validatePassword = await bcrypt.compare(credentials.password, user.password);
 
-                    return {
-                        name: data.name,
-                        email: data.email,
-                        image: data.avatar,
-                        id: data.id
-                    }
-                } catch (error) {
-                    return null;
+                if (!validatePassword) {
+                    return null
+                }
+
+                return {
+                    name: user.name,
+                    email: user.email,
+                    image: user.avatar,
+                    id: user.id
                 }
             }
         })
     ],
     callbacks: {
         async session({ session }): Promise<Session> {
-            await connectToDataBase();
-
             const sessionUser = await User.findOne({
                 email: session.user.email
             })

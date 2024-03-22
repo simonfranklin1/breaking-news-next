@@ -35,11 +35,11 @@ const Profile = ({ name, username, avatar, posts, saved, show, setShow }: Profil
                     {
                         setShow && (
                             <>
-                                <button className="px-4 py-2 bg-gray-100 hover:bg-gray-200 duration-300 rounded-md rounded-r-none text-2xl font-semibold flex-center gap-3" onClick={() => setShow("posts")}>Posts <MdOutlinePhoto /></button>
+                                <button className="px-4 py-2 bg-gray-100 hover:bg-gray-200 duration-300 rounded-md rounded-r-none text-2xl font-semibold flex-center gap-3" onClick={() => setShow("posts")}>Publicações <MdOutlinePhoto /></button>
                                 <button className="px-4 py-2 bg-gray-100 hover:bg-gray-200 duration-300 rounded-md rounded-l-none text-2xl font-semibold flex-center gap-3" onClick={() => setShow("savedPosts")}>Salvos <MdOutlinePhotoAlbum /></button>
                             </>
                         ) || (
-                            <div className="px-4 py-2 bg-gray-100 hover:bg-gray-200 duration-300 rounded-md font-semibold text-2xl flex-center gap-3">Posts <MdOutlinePhoto /></div>
+                            <div className="px-4 py-2 bg-gray-100 hover:bg-gray-200 duration-300 rounded-md font-semibold text-2xl flex-center gap-3">Publicações <MdOutlinePhoto /></div>
                         )
                     }
                 </div>

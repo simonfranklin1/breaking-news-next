@@ -20,7 +20,7 @@ export const POST = async (req: Request) => {
             return new Response(JSON.stringify({ message: "Senha ou email errados!" }), { status: 400 })
         }
 
-        return new Response(JSON.stringify({ id: user._id, name: user.username, avatar: user.avatar, email: user.email, saved: user.saved, message: "Login realizado com sucesso!"}), { status : 200 });
+        return new Response(JSON.stringify({ id: user._id, name: user.username, avatar: user.avatar, email: user.email, message: "Login realizado com sucesso!"}), { status : 200 });
     } catch (error: any) {
         return new Response(error.message, { status: 500 })
     }
