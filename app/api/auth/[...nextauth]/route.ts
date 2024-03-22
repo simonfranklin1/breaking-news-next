@@ -22,7 +22,7 @@ const handler = NextAuth({
                 }
 
                 try {
-                    const response = await fetch("api/user/signin", {
+                    const response = await fetch("https://breaking-news-60gx7b5e5-simon-franklins-projects.vercel.app/api/user/signin", {
                         method: "POST",
                         body: JSON.stringify(credentials),
                         headers: { "Content-Type": "application/json" }

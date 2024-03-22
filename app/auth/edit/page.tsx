@@ -41,7 +41,7 @@ const EditUserPage = () => {
 
         try {
             if (session?.user && user) {
-                const res = await fetch(`api/user/${user._id}/edit`, {
+                const res = await fetch(`https://breaking-news-60gx7b5e5-simon-franklins-projects.vercel.app/api/user/${user._id}/edit`, {
                     method: "PATCH",
                     headers: {
                         "Content-Type": "application/json"
