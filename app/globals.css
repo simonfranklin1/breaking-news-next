@@ -1,33 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+
+@layer utilites {
+    .font-news {
+        font-family: "Newsreader", Arial;
+    }
+
+    .scale-up-center {
+        animation: scale-up .4s;
+    }
+
+    .dropdown {
+        animation: dropdown .4s ease-in-out;
+    }
+
+    .banner-shadow {
+
+        box-shadow: inset 4px 0px 45px 25px rgba(0, 0, 0, 0.336);
+    }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+@layer components {
+    .flex-center {
+        @apply flex justify-center items-center
+    }
+
+    .form-textarea {
+        @apply w-full flex rounded-lg h-[200px] mt-2 p-3 text-sm bg-gray-100 outline-0;
+    }
+
+    .form-input {
+        @apply w-full flex rounded-lg mt-2 p-3 text-sm bg-gray-100 outline-0;
+    }
+
+    .glassmorphism {
+        @apply rounded-xl border border-gray-200 bg-white shadow-[inset_10px_-50px_94px_0_#c7c7c7] backdrop-blur p-5;
+    }
+
+    .blue_gradient {
+        @apply bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent;
+    }
+
+    .posts_layout {
+        @apply grid lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-6
+    }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@keyframes dropdown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+@keyframes scale-up {
+    from {
+        scale: .5;
+    }
+
+    to {
+        scale: 1;
+    }
 }
