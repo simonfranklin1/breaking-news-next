@@ -1,8 +1,11 @@
+"use client"
+
 import { UserI } from "@/types/types";
 import { PostList } from ".";
+import { useEffect, useState } from "react";
 
 const getTopCreators = async () => {
-  const res = await fetch("http://localhost:3000/api/user");
+  const res = await fetch("api/user");
   const data = await res.json();
 
   const users: UserI[] = data.users;
@@ -10,12 +13,18 @@ const getTopCreators = async () => {
   return users;
 }
 
-const TopCreators = async() => {
-  const creators = await getTopCreators();
+const TopCreators = () => {
+  const [creators, setCreators] = useState<UserI[] | null>(null);
+
+  useEffect(() => {
+    getTopCreators().then(response => setCreators(response))
+  }, [])
 
   return (
     <div>
-      <PostList link={"/users"} creators={creators} title="Top Criadores" />
+      {
+        creators && <PostList link={"/users"} creators={creators} title="Top Criadores" />
+      }
     </div>
   )
 }

@@ -99,7 +99,7 @@ const page = ({ params }: any) => {
 
     const handleSavePost = async() => {
         if(session && post) {
-            const res = await fetch(`http://localhost:3000/api/user/${session?.user.id}/save`, {
+            const res = await fetch(`api/user/${session?.user.id}/save`, {
             method: "PATCH",
             headers: { "Cotent-Type": "application/json" },
             body: JSON.stringify({

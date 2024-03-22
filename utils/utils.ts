@@ -13,7 +13,7 @@ export const truncateText = (text: string, number: number): string => {
 // POSTS
 
 export const createPost = async(title: string, text: string, banner: string, userId: string, category: string ) => {
-  const res = await fetch("http://localhost:3000/api/post/create", {
+  const res = await fetch("api/post/create", {
     method: "POST",
     body: JSON.stringify({
       title,
@@ -30,56 +30,56 @@ export const createPost = async(title: string, text: string, banner: string, use
 }
 
 export const findLatestPosts = async (): Promise<NewsI[]> => {
-  const res = await fetch("http://localhost:3000/api/post/latest");
+  const res = await fetch("api/post/latest");
   const data: NewsI[] = await res.json();
 
   return data;
 }
 
 export const findPost = async (id: string) => {
-  const res = await fetch("http://localhost:3000/api/post/" + id);
+  const res = await fetch(`api/post/${id}`);
   const data: NewsI = await res.json();
 
   return data;
 }
 
 export const findPosts = async () => {
-  const res = await fetch("http://localhost:3000/api/post");
+  const res = await fetch("api/post");
   const data: NewsI[] = await res.json();
 
   return data;
 }
 
 export const findPostsByCategory = async(category: string) => {
-  const res = await fetch("http://localhost:3000/api/post/category/" + category);
+  const res = await fetch("api/post/category/" + category);
   const data: NewsI[] = await res.json();
 
   return data;
 }
 
 export const findRelatedPosts = async (id: string) => {
-  const res = await fetch(`http://localhost:3000/api/post/${id}/related`);
+  const res = await fetch(`api/post/${id}/related`);
   const data: NewsI[] = await res.json();
 
   return data;
 }
 
 export const getTopPost = async (): Promise<NewsI> => {
-  const res = await fetch("http://localhost:3000/api/post/top");
+  const res = await fetch("api/post/top");
   const data: NewsI = await res.json();
 
   return data;
 }
 
 export const findUserPosts = async (id: string) => {
-  const res = await fetch(`http://localhost:3000/api/user/${id}/posts`);
+  const res = await fetch(`api/user/${id}/posts`);
   const data: NewsI[] = await res.json();
 
   return data;
 }
 
 export const likePost = async (id: string, userId: string) => {
-  const res = await fetch(`http://localhost:3000/api/post/${id}/like`, {
+  const res = await fetch(`api/post/${id}/like`, {
     method: "PATCH",
     headers: { "Content-Type": "application" },
     body: JSON.stringify({ userId: userId })
@@ -91,7 +91,7 @@ export const likePost = async (id: string, userId: string) => {
 }
 
 export const commentPost = async (comment: string, username: string, avatar: string, userId: string, postId: string) => {
-  const res = await fetch(`http://localhost:3000/api/post/${postId}/comment`, {
+  const res = await fetch(`api/post/${postId}/comment`, {
     method: "PATCH",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
@@ -108,7 +108,7 @@ export const commentPost = async (comment: string, username: string, avatar: str
 }
 
 export const deleteComment = async (userId: string, postId: string, idComment: string) => {
-  const res = await fetch(`http://localhost:3000/api/post/${postId}/comment/delete/${idComment}`, {
+  const res = await fetch(`api/post/${postId}/comment/delete/${idComment}`, {
     method: "PATCH",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
@@ -122,7 +122,7 @@ export const deleteComment = async (userId: string, postId: string, idComment: s
 }
 
 export const editPost = async(title: string, text: string, banner: string, category: string, id: string) => {
-  const res = await fetch(`http://localhost:3000/api/post/${id}/edit`, {
+  const res = await fetch(`api/post/${id}/edit`, {
     method: "PATCH",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
@@ -139,7 +139,7 @@ export const editPost = async(title: string, text: string, banner: string, categ
 }
 
 export const deletePost = async(id: string) => {
-  const res = await fetch(`http://localhost:3000/api/post/${id}`, {
+  const res = await fetch(`api/post/${id}`, {
     method: "DELETE",
     headers: { "Content-Type": "application/json" }
   })
@@ -152,7 +152,7 @@ export const deletePost = async(id: string) => {
 // USER
 
 export const createNewUser = async (userData: userDataI) => {
-  const res = await fetch("http://localhost:3000/api/user/new", {
+  const res = await fetch("api/user/new", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
@@ -184,7 +184,7 @@ export const generateUserName = (name: string): string => {
 }
 
 export const findUser = async (id: string) => {
-  const res = await fetch("http://localhost:3000/api/user/" + id);
+  const res = await fetch("api/user/" + id);
   const data: UserI = await res.json();
 
   return data;

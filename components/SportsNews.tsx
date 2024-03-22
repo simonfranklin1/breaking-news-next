@@ -5,7 +5,7 @@ import { PostList } from '.';
 import { useEffect, useState } from 'react';
 
 const getSportPosts = async () => {
-  const res = await fetch("http://localhost:3000/api/post/category/esporte");
+  const res = await fetch("api/post/category/esporte");
   const data: NewsI[] = await res.json();
 
   return data;

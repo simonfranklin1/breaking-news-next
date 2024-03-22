@@ -1,11 +1,13 @@
 import News from "@/models/News";
 import { connectToDataBase } from "@/utils/conn"
 
-export const GET = async(req: Request, { params }: any) => {
+export const GET = async(req: Request, { params }: { params: { id: string } }) => {
+    const id = params.id
+    
     try {
         await connectToDataBase();
 
-        const post = await News.findById(params.id).populate("creator");
+        const post = await News.findById(id).populate("creator");
 
         if(!post) {
             return new Response(JSON.stringify({ message: "Post não encontrado!"}), { status: 500 });
@@ -17,17 +19,19 @@ export const GET = async(req: Request, { params }: any) => {
     }
 }
 
-export const DELETE = async(req: Request, { params }: any) => {
+export const DELETE = async(req: Request, { params }: { params: { id: string } }) => {
+    const id = params.id
+    
     try {
         await connectToDataBase();
 
-        const post = await News.findById(params.id).populate("creator");
+        const post = await News.findById(id).populate("creator");
 
         if(!post) {
             return new Response(JSON.stringify({ message: "Post não encontrado!"}), { status: 400 });
         }
 
-        const deletePost = await News.findByIdAndDelete(params.id);
+        const deletePost = await News.findByIdAndDelete(id);
 
         if(!deletePost) return new Response(JSON.stringify({ message: "Algo deu errado, tente novamente" }), { status: 400 })
 

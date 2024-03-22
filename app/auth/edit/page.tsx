@@ -41,7 +41,7 @@ const EditUserPage = () => {
 
         try {
             if (session?.user && user) {
-                const res = await fetch(`http://localhost:3000/api/user/${user._id}/edit`, {
+                const res = await fetch(`api/user/${user._id}/edit`, {
                     method: "PATCH",
                     headers: {
                         "Content-Type": "application/json"

@@ -29,7 +29,7 @@ const page = ({ params }: { params: { category: string } }) => {
               </h1>
               <div className="grid lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-6">
                 {
-                  anotherPosts.map((post) => <PostCard key={post._id} post={post} top={false} />)
+                  anotherPosts.map((post) => <PostCard key={post._id} {...post} top={false} />)
                 }
               </div>
             </div>
