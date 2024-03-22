@@ -37,7 +37,7 @@ const page = ({ params }: any) => {
                 const saved = session.user.saved.find((save) => String(save.postId) === String(id));
 
                 if (liked) setAlreadyLiked(true);
-                if (saved) setSaved(true);    
+                if (saved) setSaved(true);
             });
 
             findRelatedPosts(`${id}`).then(response => setRelated(response));
@@ -55,13 +55,17 @@ const page = ({ params }: any) => {
                 setLikes(likes.filter((like) => like.userId !== `${session?.user.id}`));
                 likePost(id, `${session?.user.id}`).then((response) => {
                     toast.success(response.message);
-                })
+                }).catch(() => {
+                    toast.error("Algo deu errado, tente novamente")
+                });
             } else {
                 setAlreadyLiked(true);
                 setLikes([...likes, { userId: `${session?.user.id}`, createdAt: new Date() }]);
                 likePost(id, `${session?.user.id}`).then((response) => {
                     toast.success(response.message);
-                })
+                }).catch(() => {
+                    toast.error("Algo deu errado, tente novamente")
+                });
             }
         };
     };
@@ -84,9 +88,10 @@ const page = ({ params }: any) => {
                             createdAt: new Date()
                         }
                     ])
-                })
-
-            setComment("");
+                    setComment("");
+                }).catch(() => {
+                    toast.error("Algo deu errado, tente novamente")
+                });
         }
     }
 
@@ -94,45 +99,57 @@ const page = ({ params }: any) => {
         deletePost(`${post?._id}`).then((response) => {
             toast.success(response.message);
             router.push("/");
-        })
+        }).catch(() => {
+            toast.error("Algo deu errado, tente novamente")
+        });
     }
 
-    const handleSavePost = async() => {
-        if(session && post) {
-            const res = await fetch(`/api/user/${session?.user.id}/save`, {
-            method: "PATCH",
-            headers: { "Cotent-Type": "application/json" },
-            body: JSON.stringify({
-                postId: id,
-                title: post.title,
-                text: post.text,
-                banner: post.banner,
-                category: post.category,
-                creator: {
-                    id: post.creator._id,
-                    avatar: post.creator.avatar,
-                    username: post.creator.username,
-                    name: post.creator.name
-                },
-                createdAt: post.createdAt
-            })
-        })
-
-        const data: { message: string } = await res.json();
-
-        if(res.ok) {
+    const handleSavePost = async () => {
+        if (session && post) {
             let savedPosts = session.user.saved;
 
-            if(saved) {
+            if (saved) {
                 setSaved(false);
-                session.user.saved = savedPosts.filter((save) => save.postId !== id)
             } else {
                 setSaved(true);
-                session.user.saved = [...savedPosts, { postId: id, banner: post.banner, category: post.category, creator: { avatar: post.creator.avatar, name: post.creator.name, _id: post.creator._id }, text: post.text, title:post.title }]
             }
 
-            toast.success(data.message)
-        };
+            const res = await fetch(`/api/user/${session?.user.id}/save`, {
+                method: "PATCH",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    postId: id,
+                    title: post.title,
+                    text: post.text,
+                    banner: post.banner,
+                    category: post.category,
+                    creator: {
+                        id: post.creator._id,
+                        avatar: post.creator.avatar,
+                        username: post.creator.username,
+                        name: post.creator.name
+                    },
+                    createdAt: post.createdAt
+                })
+            })
+
+            const data: { message: string } = await res.json();
+
+            if (res.ok) {
+
+                if (saved) {
+                    session.user.saved = savedPosts.filter((save) => save.postId !== id)
+                } else {
+                    session.user.saved = [...savedPosts, { postId: id, banner: post.banner, category: post.category, creator: { avatar: post.creator.avatar, name: post.creator.name, _id: post.creator._id }, text: post.text, title: post.title }]
+                }
+
+                toast.success(data.message);
+            }
+
+            if (!res) {
+                setSaved(prev => prev);
+                toast.error("Algo deu errado, tente novamente")
+            }
         }
     }
 
@@ -143,10 +160,10 @@ const page = ({ params }: any) => {
                     <div>
                         <img src={post.banner} alt={post.title} className='sm:w-[100%] w-[100vw] lg:h-[530px] sm:h-[450px] h-[300px] object-cover object-top rounded-lg shadow-xl mb-8' />
 
-                        <PostHeader 
-                            handleDelete={handleDelete} 
-                            handleSavePost={handleSavePost} 
-                            openMenu={openMenu} 
+                        <PostHeader
+                            handleDelete={handleDelete}
+                            handleSavePost={handleSavePost}
+                            openMenu={openMenu}
                             post={post}
                             saved={saved}
                             setOpenMenu={setOpenMenu}

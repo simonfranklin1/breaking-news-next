@@ -22,7 +22,7 @@ const Footer = () => {
                     <Button text={"Inscrever"} />
                 </div>
             </div>
-            <div className="flex w-full justify-between flex-wrap gap-6">
+            <div className="flex w-full justify-between gap-6 flex-wrap">
                 <div className='flex flex-col justify-between flex-1'>
                     <div>
                         <div className="text-2xl text-blue-700 font-news font-semibold mb-4">
@@ -50,44 +50,86 @@ const Footer = () => {
                         Copyright &copy; 2024 Breaking News.
                     </div>
                 </div>
-                <div className="flex-1">
-                    <div className="flex-col flex gap-3 text-gray-600">
-                        <div className="text-xl font-semibold text-black">
-                            Tecnologia
+                <div className="flex-4 grid lg:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-8">
+                    <div className="flex-1">
+                        <div className="flex-col flex gap-3 text-gray-600">
+                            <div className="lg:text-xl text-lg font-semibold text-black">
+                                Tecnologia
+                            </div>
+                            <div>iPhone</div>
+                            <div>Samsung</div>
+                            <div>Notebook</div>
                         </div>
-                        <div>iPhone</div>
-                        <div>Samsung</div>
-                        <div>Notebook</div>
                     </div>
-                </div>
-                <div className="flex-1">
-                    <div className="flex-col flex gap-3 text-gray-600">
-                        <div className="text-xl font-semibold text-black">
-                            Esporte
+                    <div className="flex-1">
+                        <div className="flex-col flex gap-3 text-gray-600">
+                            <div className="lg:text-xl text-lg font-semibold text-black">
+                                Esporte
+                            </div>
+                            <div>Futebol</div>
+                            <div>vôlei</div>
+                            <div>Tênis</div>
                         </div>
-                        <div>Futebol</div>
-                        <div>vôlei</div>
-                        <div>Tênis</div>
                     </div>
-                </div>
-                <div className="flex-1">
-                    <div className="flex-col flex gap-3 text-gray-600">
-                        <div className="text-xl font-semibold text-black">
-                            Animes
+                    <div className="flex-1">
+                        <div className="flex-col flex gap-3 text-gray-600">
+                            <div className="lg:text-xl text-lg font-semibold text-black">
+                                Animes
+                            </div>
+                            <div>Dragon Ball</div>
+                            <div>One Piece</div>
+                            <div>Naruto</div>
                         </div>
-                        <div>Dragon Ball</div>
-                        <div>One Piece</div>
-                        <div>Naruto</div>
                     </div>
-                </div>
-                <div className="flex-1">
-                    <div className="flex-col flex gap-3 text-gray-600">
-                        <div className="text-xl font-semibold text-black">
-                            Viagens
+                    <div className="flex-1">
+                        <div className="flex-col flex gap-3 text-gray-600">
+                            <div className="lg:text-xl text-lg font-semibold text-black">
+                                Viagens
+                            </div>
+                            <div>Destinos</div>
+                            <div>Vídeos</div>
+                            <div>Novidades</div>
                         </div>
-                        <div>Angra dos Reis</div>
-                        <div>Fernando de Noronha</div>
-                        <div>Caldas Novas</div>
+                    </div>
+                    <div className="flex-1">
+                        <div className="flex-col flex gap-3 text-gray-600">
+                            <div className="lg:text-xl text-lg font-semibold text-black">
+                                Entretenimento
+                            </div>
+                            <div>Filmes</div>
+                            <div>Arte</div>
+                            <div>Televisão</div>
+                        </div>
+                    </div>
+                    <div className="flex-1">
+                        <div className="flex-col flex gap-3 text-gray-600">
+                            <div className="lg:text-xl text-lg font-semibold text-black">
+                                Clima
+                            </div>
+                            <div>Temperatura</div>
+                            <div>Previsão</div>
+                            <div>Terremoto</div>
+                        </div>
+                    </div>
+                    <div className="flex-1">
+                        <div className="flex-col flex gap-3 text-gray-600">
+                            <div className="lg:text-xl text-lg font-semibold text-black">
+                                Viagens
+                            </div>
+                            <div>Destinos</div>
+                            <div>Vídeos</div>
+                            <div>Novidades</div>
+                        </div>
+                    </div>
+                    <div className="flex-1">
+                        <div className="flex-col flex gap-3 text-gray-600">
+                            <div className="lg:text-xl text-lg font-semibold text-black">
+                                Mais
+                            </div>
+                            <div>Design</div>
+                            <div>Investimento</div>
+                            <div>Nos apoie</div>
+                        </div>
                     </div>
                 </div>
             </div>

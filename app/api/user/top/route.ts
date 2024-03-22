@@ -5,7 +5,7 @@ export const GET = async(req: Request) => {
     try {
         await connectToDataBase();
 
-        const findUsers = await User.find({}).sort({ _id: -1 })
+        const findUsers = await User.find({}).sort({ _id: -1 }).limit(4)
 
         if(!findUsers)  {
             return new Response(JSON.stringify({ message: "Usuários não encontrados!"}), { status: 400 });

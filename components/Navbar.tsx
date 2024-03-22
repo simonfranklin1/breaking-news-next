@@ -18,9 +18,20 @@ const Navbar = () => {
     <nav className='bg-white w-full py-7 px-4 sm:px-8 lg:px-0'>
       { /*<Image src={"/logo-breaking-news.png"} alt="Logo" width={128} height={56} /> */}
       <div className="max-w-[1100px] w-full mx-auto flex items-center justify-between ">
-        <Link href="/" className="text-2xl font-news text-blue-700 font-bold">
-          Breaking News
-        </Link>
+        <div className="flex gap-2">
+          <Link href="/" className="text-2xl font-news text-blue-700 font-bold">
+            Breaking News <span className="text-gray-600">|</span>
+          </Link>
+
+          <div className="flex gap-3 items-center">
+            <Link href={"/about"} className="text-gray-600 font-semibold duration-200 hover:text-gray-900">
+                Sobre
+              </Link>
+              <Link href={"/users"} className="text-gray-600 font-semibold duration-200 hover:text-gray-900">
+                Comunidade
+              </Link>  
+          </div>
+        </div>
         <>
           {
             session?.user && (
@@ -35,6 +46,10 @@ const Navbar = () => {
                     <Link href={"/profile"} className="w-full py-2 px-7 gap-2 flex-center justify-start duration-300 hover:bg-slate-200">
                       <FaUser />
                       Perfil
+                    </Link>
+                    <Link href={"/posts/create"} className="w-full sm:hidden py-2 px-7 gap-2 flex-center justify-start duration-300 hover:bg-slate-200">
+                      <FaRegEdit />
+                      Escrever
                     </Link>
                     {/*
                       <Link href={"/auth/edit"} className="w-full py-2 px-7 gap-2 flex-center justify-start duration-300 hover:bg-slate-200">

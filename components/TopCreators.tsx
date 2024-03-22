@@ -4,7 +4,16 @@ import { UserI } from "@/types/types";
 import { PostList } from ".";
 import { useEffect, useState } from "react";
 
-const getTopCreators = async () => {
+export const getTopCreators = async () => {
+  const res = await fetch("api/user/top");
+  const data = await res.json();
+
+  const users: UserI[] = data.users;
+
+  return users;
+}
+
+export const getCreators = async () => {
   const res = await fetch("api/user");
   const data = await res.json();
 
