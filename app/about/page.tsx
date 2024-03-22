@@ -9,6 +9,9 @@ const page = () => {
                 </h1>
 
                 <div>
+                    <div className="text-lg font-semibold mb-3">
+                        Sobre Nós
+                    </div>
                     <div className='font-semibold text-xl mb-6'>
                         Crie narrativas que ascendam a inspiração, conhecimento e entretenimento
                     </div>

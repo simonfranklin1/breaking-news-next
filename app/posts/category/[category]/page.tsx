@@ -34,6 +34,19 @@ const page = ({ params }: { params: { category: string } }) => {
               </div>
             </div>
           </div>
+        ) || posts && posts.length < 1 &&  (
+          <div>
+          <div className='flex flex-col gap-9'>
+            <h1 className='capitalize text-2xl font-bold'>
+              Notícias / {category}
+            </h1>
+            <div className="h-[300px] flex-center">
+              <div className="text-xl">
+                Nenhuma notícia encontrada
+              </div>
+            </div>
+          </div>
+        </div>
         )
       }
     </>

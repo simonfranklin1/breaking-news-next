@@ -14,18 +14,21 @@ const page = () => {
     }, [])
 
     return (
-            <div className='flex flex-col gap-9'>
-                <h1 className='capitalize text-2xl font-bold'>
-                    Início / Criadores
-                </h1>
+        <div className='flex flex-col gap-9'>
+            <h1 className='capitalize text-2xl font-bold'>
+                Início / Criadores
+            </h1>
+            <div>
+                <div className="text-xl">Nossos usuários</div>
                 <div className="posts_layout">
-                {
-                    creators && creators.map((creator) => (
-                        <UserCard key={creator._id} {...creator} />
-                    ))
-                }
+                    {
+                        creators && creators.map((creator) => (
+                            <UserCard key={creator._id} {...creator} />
+                        ))
+                    }
                 </div>
             </div>
+        </div>
     )
 }
 
