@@ -37,7 +37,7 @@ const handler = NextAuth({
                 }
 
                 return {
-                    name: user.name,
+                    name: user.username,
                     email: user.email,
                     image: user.avatar,
                     id: user.id

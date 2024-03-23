@@ -9,13 +9,13 @@ const page = () => {
                 </h1>
 
                 <div>
-                    <div className="text-lg font-semibold mb-3">
+                    <div className="text-2xl font-semibold mb-3">
                         Sobre Nós
                     </div>
-                    <div className='font-semibold text-xl mb-6'>
+                    <div className='font-semibold text-3xl mb-6'>
                         Crie narrativas que ascendam a inspiração, conhecimento e entretenimento
                     </div>
-                    <div className='text-lg text-gray-600'>
+                    <div className='text-xl text-gray-600'>
                         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum nihil quis, aliquam modi iure alias consequuntur aperiam perferendis quod quae! Nam modi quibusdam laudantium dicta, earum qui explicabo! Maiores, explicabo!
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, asperiores accusamus. Dolorum adipisci sapiente fugiat qui ipsa maxime doloremque architecto, sit veniam, similique nam deleniti nesciunt repellat et magnam repudiandae.
                     </div>

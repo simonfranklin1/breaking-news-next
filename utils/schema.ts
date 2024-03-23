@@ -20,8 +20,6 @@ export const postSchema = z.object({
 
 
 export const editSchema = z.object({
-    name: z.string().min(2, { message: "Este campo é obrigatório"}),
-    email: z.string().email({ message: "Este campo é obrigatório"}),
     avatar: z.string().min(8, { message: "Este campo é obrigatório" }),
 })
 

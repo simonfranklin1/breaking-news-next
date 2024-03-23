@@ -1,4 +1,4 @@
-import { LatestNews, TopNews, Welcome } from "@/components";
+import { LatestNews, TopNews, Welcome, RatedPosts } from "@/components";
 import SportsNews from "@/components/SportsNews";
 import TopCreators from "@/components/TopCreators";
 
@@ -11,7 +11,8 @@ export default function Home() {
         <TopNews />
         <LatestNews />
         <SportsNews />
-        <TopCreators />
+        <RatedPosts />
+        <TopCreators />  
       </div>
     </>
   );

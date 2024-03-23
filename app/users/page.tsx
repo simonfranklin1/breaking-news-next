@@ -19,7 +19,6 @@ const page = () => {
                 Início / Criadores
             </h1>
             <div>
-                <div className="text-xl">Nossos usuários</div>
                 <div className="posts_layout">
                     {
                         creators && creators.map((creator) => (

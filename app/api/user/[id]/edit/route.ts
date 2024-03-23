@@ -7,13 +7,13 @@ export const PATCH = async (req: Request, { params }: { params: { id: string }})
     try {
         await connectToDataBase();
 
-        const { name, username, email, avatar } = await req.json()
+        const { avatar } = await req.json()
 
-        if ( !name || !username || !email || !avatar ) {
+        if ( !avatar ) {
             return new Response("Preencha todos os campos!", { status: 400 });
         }
 
-        const editUser = await User.findByIdAndUpdate(id, { name, username, email, avatar });
+        const editUser = await User.findByIdAndUpdate(id, { avatar });
 
         if(!editUser) {
             return new Response(JSON.stringify({ message: "Algo deu errado, por favor tente mais tarde" }), { status: 400});

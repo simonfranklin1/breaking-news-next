@@ -2,6 +2,8 @@ import React from "react";
 import { NewsI, savedPost } from "../types/types";
 import PostCard from "./PostCard";
 import { MdOutlinePhoto, MdOutlinePhotoAlbum } from "react-icons/md";
+import { FaRegEdit } from "react-icons/fa";
+import Link from "next/link";
 
 interface ProfileProps {
     name: string;
@@ -18,7 +20,11 @@ const Profile = ({ name, username, avatar, posts, saved, show, setShow }: Profil
         <div className="flex flex-col gap-16">
             <div className="flex flex-col gap-14">
                 <div className="flex justify-start items-center w-full gap-8">
-                    <img src={avatar} alt="Avatar" className="w-40 h-40 object-cover rounded-full" />
+                    <div style={{ backgroundImage: `url(${avatar})`, backgroundRepeat: "no-repeat", backgroundSize: "cover" }} className="w-40 h-40 relative rounded-full">
+                        <Link href={"auth/edit"} className={`absolute bottom-3 right-3 bg-blue-700 w-7 h-7 rounded-full text-white ${setShow ? "flex-center" : "hidden" }`}>
+                            <FaRegEdit />
+                        </Link>
+                    </div>
                     <div className="flex-col flex h-full">
                         <div className="text-2xl font-semibold">
                             {name}
@@ -35,11 +41,11 @@ const Profile = ({ name, username, avatar, posts, saved, show, setShow }: Profil
                     {
                         setShow && (
                             <>
-                                <button className="px-4 py-2 bg-gray-100 hover:bg-gray-200 duration-300 rounded-md rounded-r-none text-2xl font-semibold flex-center gap-3" onClick={() => setShow("posts")}>Publicações <MdOutlinePhoto /></button>
-                                <button className="px-4 py-2 bg-gray-100 hover:bg-gray-200 duration-300 rounded-md rounded-l-none text-2xl font-semibold flex-center gap-3" onClick={() => setShow("savedPosts")}>Salvos <MdOutlinePhotoAlbum /></button>
+                                <button className="px-5 py-3 bg-gray-100 hover:bg-gray-200 duration-300 rounded-md rounded-r-none text-2xl font-semibold flex-center gap-3" onClick={() => setShow("posts")}><MdOutlinePhoto /> Publicações</button>
+                                <button className="px-5 py-3 bg-gray-100 hover:bg-gray-200 duration-300 rounded-md rounded-l-none text-2xl font-semibold flex-center gap-3" onClick={() => setShow("savedPosts")}><MdOutlinePhoto /> Salvos</button>
                             </>
                         ) || (
-                            <div className="px-4 py-2 bg-gray-100 hover:bg-gray-200 duration-300 rounded-md font-semibold text-2xl flex-center gap-3">Publicações <MdOutlinePhoto /></div>
+                            <div className="px-5 py-3 bg-gray-100 hover:bg-gray-200 duration-300 rounded-md font-semibold text-2xl flex-center gap-3">Publicações <MdOutlinePhoto /></div>
                         )
                     }
                 </div>

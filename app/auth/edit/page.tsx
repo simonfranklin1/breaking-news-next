@@ -25,12 +25,10 @@ const EditUserPage = () => {
                 console.log(response);
             });
         }
-    }, [user])
+    }, [session])
 
     const { register, handleSubmit, formState: { errors } } = useForm<z.infer<typeof editSchema>>({
         defaultValues: {
-            name: user ? user.name : "",
-            email: user ? user.email : "",
             avatar: user ? user.avatar : ""
         },
         resolver: zodResolver(editSchema)
@@ -41,7 +39,7 @@ const EditUserPage = () => {
 
         try {
             if (session?.user && user) {
-                const res = await fetch(`https://breaking-news-60gx7b5e5-simon-franklins-projects.vercel.app/api/user/${user._id}/edit`, {
+                const res = await fetch(`/api/user/${user._id}/edit`, {
                     method: "PATCH",
                     headers: {
                         "Content-Type": "application/json"
@@ -54,8 +52,6 @@ const EditUserPage = () => {
                 const data = await res.json();
 
                 const newUserData = {
-                    email: values.email,
-                    name: user.username,
                     avatar: values.avatar
                 }
 
@@ -63,10 +59,8 @@ const EditUserPage = () => {
                     toast.success(data.message);
                     router.push("/");
                     session.user = {
-                        ...session?.user,
-                        image: newUserData.avatar,
-                        email: newUserData.email,
-                        name: newUserData.name
+                        ...session.user,
+                        image: newUserData.avatar
                     }
                 }
             }
@@ -80,26 +74,16 @@ const EditUserPage = () => {
     return (
         <>
             {
-                user !== null && (
+                user && (
                     <form className='flex flex-col bg-white shadow-lg rounded-lg p-8 sm:w-[400px] w-[390px]' onSubmit={handleSubmit(handleEditUser)}>
                         <div className="text-2xl font-semibold text-center">
-                            Editar sua conta
+                            Editar sua foto
                         </div>
 
                         <div className="flex flex-col my-4 gap-3">
                             <label className="flex flex-col">
-                                <span className="mb-2">Nome</span>
-                                <input type="text" {...register("name")} placeholder="Nome e Sobrenome" className="px-2 py-1 border-2 rounded-sm" />
-                                {errors.name?.message && <p className="text-red-600">{`${errors.name?.message}`}</p>}
-                            </label>
-                            <label className="flex flex-col">
-                                <span className="mb-2">Email</span>
-                                <input type="email" {...register("email")} placeholder="Seu e-mail" className="px-2 py-1 border-2 rounded-sm" />
-                                {errors.email?.message && <p className="text-red-600">{`${errors.email?.message}`}</p>}
-                            </label>
-                            <label className="flex flex-col">
                                 <span className="mb-2">Foto de perfil</span>
-                                <input type="text" {...register("avatar")} placeholder="URL da foto de perfil" className="px-2 py-1 border-2 rounded-sm" />
+                                <input type="text" {...register("avatar")} placeholder="Link da foto de perfil" className="px-2 py-1 border-2 rounded-sm" />
                                 {errors.avatar?.message && <p className="text-red-600">{`${errors.avatar?.message}`}</p>}
                             </label>
                             <Button type='submit' text={!loading ? "EDITAR" : "SALVANDO ALTERAÇÕES..."} styles={loading ? " pointer-events-none" : ""} />

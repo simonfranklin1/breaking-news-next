@@ -82,7 +82,7 @@ const PostInteractions = ({ likes, comments, alreadyLiked, handleLike, handleCom
             <div className="py-4 text-lg border-t-2 border-b-2 text-center">
                 Comentários
             </div>
-            <div className="flex flex-col px-2 gap-6 min-h-[100px] mb-8">
+            <div className={`flex flex-col ${comments.length < 1 ? "justify-center" : ""} px-2 gap-6 min-h-[100px] mb-8`}>
                 {
                     comments.length < 1 && (
                         <div className="text-xl text-center">

@@ -5,8 +5,8 @@ import { MdOutlineUnsubscribe } from "react-icons/md";
 const Footer = () => {
     return (
         <section className='w-full max-w-[1100px] mx-auto px-4 sm:px-8 lg:px-0 flex flex-col gap-12 py-12'>
-            <div className="w-full bg-slate-100 py-12 flex flex-wrap gap-4 items-center justify-between rounded-xl px-7">
-                <div className="sm:max-w-[40%]">
+            <div className="w-full bg-slate-100 py-12 flex flex-col sm:flex-row gap-4 items-center justify-between rounded-xl px-7">
+                <div className="sm:max-w-[50%]">
                     <div className="sm:text-xl font-semibold opacity-50 mb-5">
                         RECEBA AS NOTÍCIAS EM PRIMEIRA MÃO
                     </div>
@@ -17,13 +17,13 @@ const Footer = () => {
                     </div>
                 </div>
 
-                <div className="flex-center gap-3">
+                <div className="flex-center gap-3 sm:w-[50%]">
                     <input type="email" placeholder="Seu email" className="px-2 py-2 border-2 rounded-md" />
                     <Button text={"Inscrever"} />
                 </div>
             </div>
             <div className="flex w-full justify-between gap-6 flex-wrap">
-                <div className='flex flex-col justify-between flex-1'>
+                <div className='flex flex-col justify-between flex-1 gap-6'>
                     <div>
                         <div className="text-2xl text-blue-700 font-news font-semibold mb-4">
                             Breaking News
@@ -50,15 +50,15 @@ const Footer = () => {
                         Copyright &copy; 2024 Breaking News.
                     </div>
                 </div>
-                <div className="flex-4 grid lg:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-8">
+                <div className="flex-4 grid lg:grid-cols-4 sm:grid-cols-3 grid-cols-2 px-4 gap-8">
                     <div className="flex-1">
                         <div className="flex-col flex gap-3 text-gray-600">
                             <div className="lg:text-xl text-lg font-semibold text-black">
                                 Tecnologia
                             </div>
-                            <div>iPhone</div>
-                            <div>Samsung</div>
-                            <div>Notebook</div>
+                            <a href="#" target="_blank" className="hover:text-blue-700">iPhone</a>
+                            <a href="#" target="_blank" className="hover:text-blue-700">Samsung</a>
+                            <a href="#" target="_blank" className="hover:text-blue-700">Notebook</a>
                         </div>
                     </div>
                     <div className="flex-1">
@@ -66,9 +66,9 @@ const Footer = () => {
                             <div className="lg:text-xl text-lg font-semibold text-black">
                                 Esporte
                             </div>
-                            <div>Futebol</div>
-                            <div>vôlei</div>
-                            <div>Tênis</div>
+                            <a href="#" target="_blank" className="hover:text-blue-700">Futebol</a>
+                            <a href="#" target="_blank" className="hover:text-blue-700">vôlei</a>
+                            <a href="#" target="_blank" className="hover:text-blue-700">Tênis</a>
                         </div>
                     </div>
                     <div className="flex-1">
@@ -76,9 +76,9 @@ const Footer = () => {
                             <div className="lg:text-xl text-lg font-semibold text-black">
                                 Animes
                             </div>
-                            <div>Dragon Ball</div>
-                            <div>One Piece</div>
-                            <div>Naruto</div>
+                            <a href="#" target="_blank" className="hover:text-blue-700">Dragon Ball</a>
+                            <a href="#" target="_blank" className="hover:text-blue-700">One Piece</a>
+                            <a href="#" target="_blank" className="hover:text-blue-700">Naruto</a>
                         </div>
                     </div>
                     <div className="flex-1">
@@ -86,9 +86,9 @@ const Footer = () => {
                             <div className="lg:text-xl text-lg font-semibold text-black">
                                 Viagens
                             </div>
-                            <div>Destinos</div>
-                            <div>Vídeos</div>
-                            <div>Novidades</div>
+                            <a href="#" target="_blank" className="hover:text-blue-700">Destinos</a>
+                            <a href="#" target="_blank" className="hover:text-blue-700">Vídeos</a>
+                            <a href="#" target="_blank" className="hover:text-blue-700">Novidades</a>
                         </div>
                     </div>
                     <div className="flex-1">
@@ -96,9 +96,9 @@ const Footer = () => {
                             <div className="lg:text-xl text-lg font-semibold text-black">
                                 Entretenimento
                             </div>
-                            <div>Filmes</div>
-                            <div>Arte</div>
-                            <div>Televisão</div>
+                            <a href="#" target="_blank" className="hover:text-blue-700">Filmes</a>
+                            <a href="#" target="_blank" className="hover:text-blue-700">Arte</a>
+                            <a href="#" target="_blank" className="hover:text-blue-700">Televisão</a>
                         </div>
                     </div>
                     <div className="flex-1">
@@ -106,9 +106,9 @@ const Footer = () => {
                             <div className="lg:text-xl text-lg font-semibold text-black">
                                 Clima
                             </div>
-                            <div>Temperatura</div>
-                            <div>Previsão</div>
-                            <div>Terremoto</div>
+                            <a href="#" target="_blank" className="hover:text-blue-700">Temperatura</a>
+                            <a href="#" target="_blank" className="hover:text-blue-700">Previsão</a>
+                            <a href="#" target="_blank" className="hover:text-blue-700">Terremoto</a>
                         </div>
                     </div>
                     <div className="flex-1">
@@ -116,9 +116,9 @@ const Footer = () => {
                             <div className="lg:text-xl text-lg font-semibold text-black">
                                 Viagens
                             </div>
-                            <div>Destinos</div>
-                            <div>Vídeos</div>
-                            <div>Novidades</div>
+                            <a href="#" target="_blank" className="hover:text-blue-700">Destinos</a>
+                            <a href="#" target="_blank" className="hover:text-blue-700">Vídeos</a>
+                            <a href="#" target="_blank" className="hover:text-blue-700">Novidades</a>
                         </div>
                     </div>
                     <div className="flex-1">
@@ -126,9 +126,9 @@ const Footer = () => {
                             <div className="lg:text-xl text-lg font-semibold text-black">
                                 Mais
                             </div>
-                            <div>Design</div>
-                            <div>Investimento</div>
-                            <div>Nos apoie</div>
+                            <a href="#" target="_blank" className="hover:text-blue-700">Design</a>
+                            <a href="#" target="_blank" className="hover:text-blue-700">Investimento</a>
+                            <a href="#" target="_blank" className="hover:text-blue-700">Nos apoie</a>
                         </div>
                     </div>
                 </div>
