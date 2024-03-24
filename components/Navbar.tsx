@@ -80,12 +80,6 @@ const Navbar = () => {
                         <FaRegEdit />
                         Escrever
                       </Link>
-                      {/*
-                        <Link href={"/auth/edit"} className="w-full py-2 px-7 gap-2 flex-center justify-start duration-300 hover:bg-slate-200">
-                          <FaUserEdit />
-                          Editar
-                        </Link>
-                      */}
                       <div className="w-full py-2 px-7 gap-2 flex-center justify-start duration-300 hover:bg-slate-200" onClick={() => signOut({ callbackUrl: "/" })}>
                         <CiLogout />
                         Sair

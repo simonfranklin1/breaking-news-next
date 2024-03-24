@@ -12,6 +12,9 @@ const page = ({ params }: { params: { category: string } }) => {
   const anotherPosts = posts ? posts.filter((post) => post !== posts[0]) : null;
 
   useEffect(() => {
+    window.scrollTo({
+      top: 0
+    })
     findPostsByCategory(category).then(response => setPosts(response));
   }, []);
 

@@ -12,6 +12,9 @@ const page = () => {
 
 
   useEffect(() => {
+    window.scrollTo({
+      top: 0
+    })
     findPosts().then(response => setPosts(response));
   }, []);
 
