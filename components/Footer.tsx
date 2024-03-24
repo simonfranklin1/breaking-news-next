@@ -17,7 +17,7 @@ const Footer = () => {
                     </div>
                 </div>
 
-                <div className="flex-center gap-3 sm:w-[50%]">
+                <div className="flex items-center justify-end gap-3 sm:w-[50%]">
                     <input type="email" placeholder="Seu email" className="px-2 py-2 border-2 rounded-md" />
                     <Button text={"Inscrever"} />
                 </div>

@@ -199,7 +199,7 @@ const page = ({ params }: any) => {
                                 <div className="lg:flex lg:flex-col grid sm:grid-cols-2 gap-6 gap-y-7">
                                     {
                                         related.map((item) => (
-                                            <RelatedPostCard key={item._id} post={item}  />
+                                            <RelatedPostCard key={item._id} post={item} rated={false}  />
                                         ))
                                     }
                                 </div>

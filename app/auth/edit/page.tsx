@@ -57,11 +57,8 @@ const EditUserPage = () => {
 
                 if (res.ok) {
                     toast.success(data.message);
-                    router.push("/");
-                    session.user = {
-                        ...session.user,
-                        image: newUserData.avatar
-                    }
+                    session.user.image = newUserData.avatar;
+                    router.push("/");   
                 }
             }
         } catch (error) {

@@ -19,7 +19,7 @@ export const PATCH = async (req: Request, { params }: { params: { id: string }})
             return new Response(JSON.stringify({ message: "Algo deu errado, por favor tente mais tarde" }), { status: 400});
         }
 
-        return new Response(JSON.stringify({ message: "Usuário editado com sucesso" }), { status: 200 });
+        return new Response(JSON.stringify({ message: "Foto de perfil atualizada" }), { status: 200 });
     } catch (error: any) {
         return new Response(error.message, { status: 500})
     }
