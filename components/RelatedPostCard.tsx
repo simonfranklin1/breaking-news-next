@@ -9,8 +9,8 @@ const RelatedPostCard = ({ post, rated }: { post: NewsI, rated: boolean }) => {
     <Link href={"/posts/" + post._id}>
       <div className="flex flex-col lg:h-[275px] h-[300px] group">
         <img src={post.banner} alt={`Post ${post._id} Image`} className={`w-full rounded-lg object-cover h-[55%]`} />
-        <div className={`flex flex-col gap-1 py-3 ${ rated ? "h-[60%]" : "h-[50%]"}`}>
-          <div className="flex items-center gap-1 font-[10px]">
+        <div className={`flex flex-col  py-3 ${ rated ? "h-[60%] gap-1" : "h-[50%] gap-2"}`}>
+          <div className={`flex items-center ${rated ? "gap-1" : "gap-2" } font-[10px]`}>
             <img src={post.creator.avatar} alt="creator" className={`w-6 h-6 rounded-full object-cover`} />
             <div className="text-gray-600">
               {post.creator.name} <span className={`${rated ? "hidden" : "inline-block" }`}><TbPointFilled /></span> <span className={`${rated ? "hidden" : "inline-block" }`}>{new Date(post.createdAt).toLocaleDateString("pt-BR", {  year: "numeric", month: "short", day: "numeric" })}</span>

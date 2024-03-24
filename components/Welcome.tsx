@@ -2,7 +2,7 @@ import { FcIdea, FcReading, FcClapperboard, FcAddressBook } from "react-icons/fc
 
 const Welcome = () => {
     return (
-        <section className="w-full bg-slate-100 py-12 flex flex-col rounded-xl gap-5">
+        <section className="w-full bg-slate-100 py-12 px-4 flex flex-col rounded-xl gap-5">
             <div className="sm:text-xl font-semibold text-center opacity-50">
                 SEJA BEM VINDO AO BREAKING NEWS
             </div>

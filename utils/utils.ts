@@ -65,7 +65,7 @@ export const findRelatedPosts = async (id: string) => {
 }
 
 export const getTopPost = async (): Promise<NewsI> => {
-  const res = await fetch("api/post/top");
+  const res = await fetch("api/post/topPost");
   const data: NewsI = await res.json();
 
   return data;

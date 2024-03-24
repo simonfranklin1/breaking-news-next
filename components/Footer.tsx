@@ -67,7 +67,7 @@ const Footer = () => {
                                 Esporte
                             </div>
                             <a href="#" target="_blank" className="hover:text-blue-700">Futebol</a>
-                            <a href="#" target="_blank" className="hover:text-blue-700">vôlei</a>
+                            <a href="#" target="_blank" className="hover:text-blue-700">Basquete</a>
                             <a href="#" target="_blank" className="hover:text-blue-700">Tênis</a>
                         </div>
                     </div>
@@ -114,11 +114,11 @@ const Footer = () => {
                     <div className="flex-1">
                         <div className="flex-col flex gap-3 text-gray-600">
                             <div className="lg:text-xl text-lg font-semibold text-black">
-                                Viagens
+                                Cultura
                             </div>
-                            <a href="#" target="_blank" className="hover:text-blue-700">Destinos</a>
-                            <a href="#" target="_blank" className="hover:text-blue-700">Vídeos</a>
-                            <a href="#" target="_blank" className="hover:text-blue-700">Novidades</a>
+                            <a href="#" target="_blank" className="hover:text-blue-700">Culinária</a>
+                            <a href="#" target="_blank" className="hover:text-blue-700">História</a>
+                            <a href="#" target="_blank" className="hover:text-blue-700">Costumes</a>
                         </div>
                     </div>
                     <div className="flex-1">

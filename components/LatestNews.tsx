@@ -14,7 +14,7 @@ const LatestNews = () => {
 
     return (
         <>
-            { posts && <PostList posts={posts} link={"/posts"} title="Últimas notícias" />}
+            { posts && <PostList posts={posts.slice(0, 4)} link={"/posts"} title="Últimas notícias" />}
         </>
     )
 }

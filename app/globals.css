@@ -19,8 +19,7 @@
     }
 
     .banner-shadow {
-
-        box-shadow: inset 4px 0px 45px 25px rgba(0, 0, 0, 0.336);
+        box-shadow: inset 0px -200px 25px 0px rgba(0,0,0,0.5);
     }
 }
 

@@ -21,7 +21,7 @@ const SportsNews = () => {
   return (
     <>
       { posts && (
-        <PostList link={"/posts/category/esporte"} title='Esporte' posts={posts} />
+        <PostList link={"/posts/category/esporte"} title='Esporte' posts={posts.slice(0, 4)} />
       )}
     </>
   )

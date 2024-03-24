@@ -65,7 +65,7 @@ const Navbar = () => {
                 <MobileNavbar open={openMobileMenu} setOpen={setOpenMobileMenu} userImage={session.user.image} username={session.user.name} />
 
                 <div className="sm:flex gap-3 items-center hidden">
-                  <button className="sm:flex-center text-lg gap-1 font-semibold px-3 py-2 rounded-lg duration-300 bg-none border-none hover:text-blue-500 hidden" onClick={() => router.push("/posts/create")}>
+                  <button className="sm:flex-center text-lg gap-1 font-semibold px-3 py-2 rounded-lg duration-300 bg-none border-none text-gray-600 hover:text-blue-500 hidden" onClick={() => router.push("/posts/create")}>
                     <FaRegEdit />
                     Escrever
                   </button>
