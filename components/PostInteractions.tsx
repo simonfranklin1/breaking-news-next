@@ -7,9 +7,20 @@ import { deleteComment } from '@/utils/utils';
 import { toast } from 'react-toastify';
 import { FaRegTrashAlt, FaArrowCircleDown } from "react-icons/fa";
 
-const PostComment = ({ comment, userId, postId, comments, setComments }: { comment: postCommentI, userId: string, postId: string, comments: postCommentI[], setComments: React.Dispatch<React.SetStateAction<postCommentI[] | null>> }) => {
+const PostComment = ({ comment, user, postId, comments, setComments }:
+    {
+        comment: postCommentI,
+        user: {
+            id: string;
+            name: string;
+            image: string;
+            email: string;
+        }, postId: string,
+        comments: postCommentI[],
+        setComments: React.Dispatch<React.SetStateAction<postCommentI[] | null>>
+    }) => {
     const handleDeleteComment = () => {
-        deleteComment(userId, postId, comment.idComment).then((response) => {
+        deleteComment(user.id, postId, comment.idComment).then((response) => {
             if (comments) {
                 const filteredComments = comments.filter((item) => item.idComment !== comment.idComment);
                 setComments(filteredComments);
@@ -19,16 +30,16 @@ const PostComment = ({ comment, userId, postId, comments, setComments }: { comme
     }
 
     return (
-        <div className="flex items-start justify-between gap-2 sm:justify-normal max-w-[95%]">
-            <Link href={comment.userId === userId ? "/profile" : "/profile/" + comment.userId} >
-                <img src={comment.avatar} alt={comment.username} className="sm:w-12 sm:h-12 w-7 h-7 rounded-full object-cover" />
+        <div className="flex items-start gap-2 sm:justify-normal max-w-[95%]">
+            <Link href={comment.userId === user.id ? "/profile" : "/profile/" + comment.userId} >
+                <img src={comment.userId === user.id ? user.image : comment.avatar} alt={comment.username} className="sm:w-12 sm:h-12 w-7 h-7 rounded-full object-cover" />
             </Link>
             <div className="flex flex-col px-5 gap-4 relative max-w-[90%]">
                 <div className="text-lg font-bold">
                     {comment.username}
                 </div>
                 {comment.comment}
-                <button className={`absolute top-[5px] right-[-25px] duration-200 hover:scale-105 hover:text-red-500 text-lg ${comment.userId !== userId ? "hidden" : ""}`} onClick={handleDeleteComment}>
+                <button className={`absolute top-[5px] right-[-25px] duration-200 hover:scale-105 hover:text-red-500 text-lg ${comment.userId !== user.id ? "hidden" : ""}`} onClick={handleDeleteComment}>
                     <FaRegTrashAlt />
                 </button>
             </div>
@@ -90,12 +101,11 @@ const PostInteractions = ({ likes, comments, alreadyLiked, handleLike, handleCom
                         </div>
                     ) || (
                         comments.map((comment) => (
-                            <PostComment key={comment.idComment} comment={comment} userId={`${user.id}`} postId={`${id}`} comments={comments} setComments={setComments} />
+                            <PostComment key={comment.idComment} comment={comment} user={user} postId={`${id}`} comments={comments} setComments={setComments} />
                         ))
                     )
                 }
             </div>
-
         </>
     )
 }

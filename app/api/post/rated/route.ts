@@ -5,7 +5,7 @@ export const GET = async(req: Request) => {
     try {   
         await connectToDataBase();
 
-        const posts = await News.find({}).sort({ likes: -1 }).limit(4).skip(1).populate("creator");
+        const posts = await News.find({}).sort({ likes: -1 }).limit(4).populate("creator");
 
         if(!posts) return new Response(JSON.stringify({ message: "Posts não encontrados!" }), { status: 400 });
 

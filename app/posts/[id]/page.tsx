@@ -40,7 +40,7 @@ const page = ({ params }: any) => {
                 if (saved) setSaved(true);
             });
 
-            findRelatedPosts(`${id}`).then(response => setRelated(response));
+            findRelatedPosts(`${id}`).then(response => setRelated(response.slice(0, 3)));
         } else {
             alert("Faça login para interagir com os posts");
             router.push("/")
@@ -158,7 +158,7 @@ const page = ({ params }: any) => {
             {
                 post && likes && comments && related && session && (
                     <div>
-                        <img src={post.banner} alt={post.title} className='sm:w-[100%] w-[100vw] lg:h-[530px] sm:h-[450px] h-[300px] object-cover object-top rounded-lg shadow-xl mb-8' />
+                        <img src={post.banner} alt={post.title} className='sm:w-[100%] w-[100%] lg:h-[530px] sm:h-[450px] h-[300px] object-cover object-top rounded-lg shadow-xl mb-8' />
 
                         <PostHeader
                             handleDelete={handleDelete}
@@ -196,7 +196,7 @@ const page = ({ params }: any) => {
                                 <div className="text-xl font-bold uppercase mb-8">
                                     Notícias relacionadas
                                 </div>
-                                <div className="lg:flex lg:flex-col grid sm:grid-cols-2 gap-6 gap-y-7">
+                                <div className="lg:flex lg:flex-col grid sm:grid-cols-2 gap-6 gap-y-0">
                                     {
                                         related.map((item) => (
                                             <RelatedPostCard key={item._id} post={item} rated={false}  />
