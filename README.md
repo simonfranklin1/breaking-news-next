@@ -1,4 +1,4 @@
-# E-commerce FS
+# Breaking News
 - Site de notícias feito com Next.js
 
 ### O usuário pode:

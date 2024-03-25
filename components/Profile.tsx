@@ -41,8 +41,8 @@ const Profile = ({ name, username, avatar, posts, saved, show, setShow }: Profil
                     {
                         setShow && (
                             <>
-                                <button className="px-5 py-3 bg-gray-100 hover:bg-gray-200 duration-300 rounded-md rounded-r-none text-2xl font-semibold flex-center gap-3" onClick={() => setShow("posts")}><MdOutlinePhoto /> Publicações</button>
-                                <button className="px-5 py-3 bg-gray-100 hover:bg-gray-200 duration-300 rounded-md rounded-l-none text-2xl font-semibold flex-center gap-3" onClick={() => setShow("savedPosts")}><MdOutlinePhotoAlbum /> Salvos</button>
+                                <button className={`px-5 py-3 ${ show === "posts" ? "bg-slate-200" : "bg-gray-100"} hover:bg-gray-200 duration-300 rounded-md rounded-r-none text-2xl font-semibold flex-center gap-3`} onClick={() => setShow("posts")}><MdOutlinePhoto /> Publicações</button>
+                                <button className={`px-5 py-3 ${ show === "savedPosts" ? "bg-slate-200" : "bg-gray-100"} hover:bg-gray-200 duration-300 rounded-md rounded-l-none text-2xl font-semibold flex-center gap-3`} onClick={() => setShow("savedPosts")}><MdOutlinePhotoAlbum /> Salvos</button>
                             </>
                         ) || (
                             <div className="px-5 py-3 bg-gray-100 hover:bg-gray-200 duration-300 rounded-md font-semibold text-2xl flex-center gap-3">Publicações <MdOutlinePhoto /></div>

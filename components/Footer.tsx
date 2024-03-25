@@ -23,7 +23,7 @@ const Footer = () => {
                 </div>
             </div>
             <div className="flex w-full justify-between gap-6 flex-wrap">
-                <div className='flex flex-col justify-between flex-1 gap-6'>
+                <div className='flex flex-col justify-between flex-1 gap-12'>
                     <div>
                         <div className="text-2xl text-blue-700 font-news font-semibold mb-4">
                             Breaking News
@@ -50,7 +50,7 @@ const Footer = () => {
                         Copyright &copy; 2024 Breaking News.
                     </div>
                 </div>
-                <div className="flex-4 grid lg:grid-cols-4 sm:grid-cols-3 grid-cols-2 px-4 gap-8">
+                <div className="flex-4 grid lg:grid-cols-4 sm:grid-cols-3 grid-cols-2 px-4 gap-x-8 gap-y-12">
                     <div className="flex-1">
                         <div className="flex-col flex gap-3 text-gray-600">
                             <div className="lg:text-xl text-lg font-semibold text-black">
