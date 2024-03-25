@@ -2,7 +2,7 @@
 
 import { PostBanner, PostCard } from '@/components';
 import { NewsI } from '@/types/types'
-import { findPosts } from '@/utils/utils';
+import { findLatestPosts } from '@/utils/utils';
 import React, { useEffect, useState } from 'react'
 
 const page = () => {
@@ -15,7 +15,7 @@ const page = () => {
     window.scrollTo({
       top: 0
     })
-    findPosts().then(response => setPosts(response));
+    findLatestPosts().then(response => setPosts(response));
   }, []);
 
   return (

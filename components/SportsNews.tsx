@@ -2,7 +2,6 @@
 
 import { NewsI } from '@/types/types';
 import { PostList } from '.';
-import { useEffect, useState } from 'react';
 
 const getSportPosts = async () => {
   const res = await fetch("api/post/category/esporte");
@@ -11,18 +10,10 @@ const getSportPosts = async () => {
   return data;
 }
 
-const SportsNews = () => {
-  const [posts, setPosts] = useState<NewsI[] | null>(null);
-
-  useEffect(() => {
-    getSportPosts().then(response => setPosts(response));
-  }, [])
-
+const SportsNews = ({ posts }: { posts: NewsI[] }) => {
   return (
     <>
-      { posts && (
-        <PostList link={"/posts/category/esporte"} title='Esporte' posts={posts.slice(0, 4)} />
-      )}
+      <PostList link={"/posts/category/esporte"} title='Esporte' posts={posts.slice(0, 4)} />
     </>
   )
 }

@@ -35,7 +35,7 @@ const PostCard = ({ _id, banner, category, creator, text, title, top }: PostCard
                                 {creator.name}
                             </div>
                         </div>
-                        <div className={`${top ? "lg:text-5xl sm:text-4xl text-2xl" : "text-lg"} font-semibold font-news group-hover:text-blue-500 duration-300`}>
+                        <div className={`${top ? "lg:text-5xl sm:text-4xl text-2xl" : "text-lg"} font-bold font-news group-hover:text-blue-500 duration-300`}>
                             {
                                 top ? truncateText(title, 44) : truncateText(title, 77)
                             }

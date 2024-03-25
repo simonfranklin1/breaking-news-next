@@ -1,26 +1,12 @@
-"use client"
 
-import { getTopPost } from '@/utils/utils';
-import { Loading, PostCard } from '.';
-import { useEffect, useState } from 'react';
+import { PostCard } from '.';
 import { NewsI } from '@/types/types';
 
-const TopNews = () => {
-  const [post, setPost] = useState<NewsI | null>(null);
-
-  useEffect(() => {
-    getTopPost().then(response => setPost(response));
-  }, []);
+const TopNews = ({ post }: { post: NewsI }) => {
 
   return (
     <div className="lg:h-[350px] h-auto">
-      {
-        post && (
-          <PostCard {...post} top={true} />
-        ) || (
-          <Loading />
-        )
-      }
+      <PostCard {...post} top={true} />
     </div>
   )
 }

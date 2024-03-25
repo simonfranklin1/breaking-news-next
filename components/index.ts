@@ -13,6 +13,7 @@ import PostBanner from "./PostBanner";
 import Loading from "./Loading";
 import PostHeader from "./postHeader";
 import RatedPosts from "./RatedPosts";
+import Feed from "./Feed";
 
 export {
     Navbar,
@@ -29,5 +30,6 @@ export {
     PostBanner,
     Loading,
     PostHeader,
-    RatedPosts
+    RatedPosts,
+    Feed
 }

@@ -158,7 +158,7 @@ const page = ({ params }: any) => {
             {
                 post && likes && comments && related && session && (
                     <div>
-                        <img src={post.banner} alt={post.title} className='sm:w-[100%] w-[100%] lg:h-[530px] sm:h-[450px] h-[300px] object-cover object-top rounded-lg shadow-xl mb-8' />
+                        <img src={post.banner} alt={post.title} className='sm:w-[100%] w-[100%] lg:h-[530px] sm:h-[450px] h-[300px] object-cover object-top rounded-lg shadow-2xl mb-8' />
 
                         <PostHeader
                             handleDelete={handleDelete}

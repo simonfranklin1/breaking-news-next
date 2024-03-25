@@ -30,7 +30,14 @@ export const createPost = async (title: string, text: string, banner: string, us
 }
 
 export const findLatestPosts = async (): Promise<NewsI[]> => {
-  const res = await fetch("api/post/latest");
+  const res = await fetch("api/post");
+  const data: NewsI[] = await res.json();
+
+  return data;
+}
+
+export const findRatedPosts = async (): Promise<NewsI[]> => {
+  const res = await fetch("api/post/rated");
   const data: NewsI[] = await res.json();
 
   return data;
@@ -39,13 +46,6 @@ export const findLatestPosts = async (): Promise<NewsI[]> => {
 export const findPost = async (id: string) => {
   const res = await fetch(`/api/post/${id}`);
   const data: NewsI = await res.json();
-
-  return data;
-}
-
-export const findPosts = async () => {
-  const res = await fetch("/api/post");
-  const data: NewsI[] = await res.json();
 
   return data;
 }
@@ -60,13 +60,6 @@ export const findPostsByCategory = async (category: string) => {
 export const findRelatedPosts = async (id: string) => {
   const res = await fetch(`/api/post/${id}/related`);
   const data: NewsI[] = await res.json();
-
-  return data;
-}
-
-export const getTopPost = async (): Promise<NewsI> => {
-  const res = await fetch("api/post/topPost");
-  const data: NewsI = await res.json();
 
   return data;
 }

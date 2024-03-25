@@ -1,5 +1,4 @@
-import { LatestNews, TopNews, Welcome, RatedPosts } from "@/components";
-import SportsNews from "@/components/SportsNews";
+import { Welcome, Feed } from "@/components";
 import TopCreators from "@/components/TopCreators";
 
 export default function Home() {
@@ -8,10 +7,7 @@ export default function Home() {
     <>
       <div className="flex flex-col gap-12">
         <Welcome />
-        <TopNews />
-        <LatestNews />
-        <SportsNews />
-        <RatedPosts />
+        <Feed />
         <TopCreators />  
       </div>
     </>

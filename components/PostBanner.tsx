@@ -26,7 +26,7 @@ const PostBanner = ({ post }: { post: NewsI }) => {
                     <div className="text-base sm:hidden block">
                         {truncateText(post.text, 70)}
                     </div>
-                    <div className="lg:text-lg sm:text-base capitalize">
+                    <div className="lg:text-lg sm:text-base capitalize font-medium">
                         {post.category}
                     </div>
                 </div>
