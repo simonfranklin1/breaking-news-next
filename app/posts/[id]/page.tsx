@@ -156,7 +156,7 @@ const page = ({ params }: any) => {
     return (
         <>
             {
-                post && likes && comments && related && session && (
+                post && likes && comments && session && (
                     <div>
                         <img src={post.banner} alt={post.title} className='sm:w-[100%] w-[100%] lg:h-[530px] sm:h-[450px] h-[300px] object-cover object-top rounded-lg shadow-2xl mb-8' />
 
@@ -198,7 +198,7 @@ const page = ({ params }: any) => {
                                 </div>
                                 <div className="lg:flex lg:flex-col grid sm:grid-cols-2 gap-6 gap-y-0">
                                     {
-                                        related.map((item) => (
+                                        related?.map((item) => (
                                             <RelatedPostCard key={item._id} post={item} rated={false}  />
                                         ))
                                     }
