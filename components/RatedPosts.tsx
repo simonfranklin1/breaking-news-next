@@ -1,7 +1,6 @@
 "use client"
 
 import { NewsI } from '@/types/types';
-import React, { useEffect, useState } from 'react'
 import { PostCard } from '.';
 import { truncateText } from '@/utils/utils';
 import Link from 'next/link';
@@ -19,8 +18,8 @@ const RatedPosts = ({ posts }: { posts: NewsI[] }) => {
                 <PostCard key={posts[1]._id} {...posts[1]} />
                 <div className='col-span-2'>
                     <Link href={"/posts/" + mostRated._id}>
-                        <div style={{ backgroundImage: `url(${mostRated.banner})`, backgroundSize: "cover", backgroundRepeat: "no-repeat", backgroundPosition: "center" }} className='w-full rounded-xl lg:h-[530px] h-[400px] flex justify-start items-end p-4 px-8 text-white relative object-cover object-center overflow-hidden banner-shadow'>
-                            <div className="flex flex-col gap-2 z-10">
+                        <div style={{ backgroundImage: `url(${mostRated.banner})`, backgroundSize: "cover", backgroundPosition: "center" }} className='w-full rounded-xl lg:h-[530px] h-[400px] flex justify-start items-end p-4 px-8 text-white relative object-cover object-center overflow-hidden banner-shadow'>
+                            <div className="flex flex-col gap-2">
                                 <div className="flex items-center gap-3">
                                     <img src={mostRated.creator.avatar} alt="creator" className={`w-8 h-8" rounded-full object-cover`} />
                                     <div>

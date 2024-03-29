@@ -1,5 +1,4 @@
 import { Welcome, Feed } from "@/components";
-import TopCreators from "@/components/TopCreators";
 
 export default function Home() {
 
@@ -7,8 +6,7 @@ export default function Home() {
     <>
       <div className="flex flex-col gap-12">
         <Welcome />
-        <Feed />
-        <TopCreators />  
+        <Feed />  
       </div>
     </>
   );
