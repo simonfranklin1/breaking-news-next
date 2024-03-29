@@ -9,6 +9,7 @@ import SportsNews from './SportsNews';
 const Feed = () => {
     const [ posts, setPosts ] = useState<NewsI[] | null>(null);
     const [ rated, setRated ] = useState<NewsI[] | null>(null);
+    const latestPost = posts ? posts[0] : null;
 
     useEffect(() => {
         findLatestPosts().then(response => setPosts(response));
@@ -18,12 +19,12 @@ const Feed = () => {
   return (
     <div>
         {
-            posts && rated && (
+            posts && rated && latestPost && (
                 <div className="flex flex-col gap-12">
-                    <TopNews post={posts[0]} />
-                    <LatestNews posts={posts.filter((post) => post !== posts[0])} />
-                    <SportsNews posts={posts.filter((post) => post.category === "esporte" && post !== posts[0])} />
-                    <RatedPosts posts={rated.filter((post) => post !== posts[0]).slice(0, 4)} />
+                    <TopNews post={latestPost} />
+                    <LatestNews posts={posts.filter((post) => post !== latestPost)} />
+                    <SportsNews posts={posts.filter((post) => post.category === "esporte" && post !== latestPost)} />
+                    <RatedPosts posts={rated.filter((post) => post._id !== latestPost._id).slice(0, 4)} />
                 </div>
             ) || (
                 <Loading />

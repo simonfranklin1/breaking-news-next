@@ -3,6 +3,7 @@ import { connectToDataBase } from "@/utils/conn";
 
 export const GET = async(req: Request, { params }: any) => {
     const id = params.id;
+    
     try {
         await connectToDataBase();
 

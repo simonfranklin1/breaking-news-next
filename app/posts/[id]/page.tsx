@@ -1,7 +1,7 @@
 "use client"
 
 import { NewsI, likePostI, postCommentI } from '@/types/types';
-import { commentPost, deletePost, findPost, findRelatedPosts, likePost } from '@/utils/utils';
+import { commentPost, deletePost, findPost, findPostsByCategory, findRelatedPosts, likePost } from '@/utils/utils';
 import { useSession } from 'next-auth/react';
 import React, { FormEvent, useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
@@ -38,9 +38,13 @@ const page = ({ params }: any) => {
 
                 if (liked) setAlreadyLiked(true);
                 if (saved) setSaved(true);
-            });
 
-            findRelatedPosts(`${id}`).then(response => setRelated(response.slice(0, 3)));
+                findPostsByCategory(`${response.category}`).then((res) => {
+                    const relatedPosts = res.filter((item) => item._id !== response._id).slice(0, 3);
+
+                    setRelated(relatedPosts);
+                })
+            });
         } else {
             alert("Faça login para interagir com os posts");
             router.push("/")
@@ -196,7 +200,7 @@ const page = ({ params }: any) => {
                                 <div className="text-xl font-bold uppercase mb-8">
                                     Notícias relacionadas
                                 </div>
-                                <div className="lg:flex lg:flex-col grid sm:grid-cols-2 gap-6 gap-y-0">
+                                <div className="lg:flex lg:flex-col grid sm:grid-cols-2 gap-6 gap-y-4">
                                     {
                                         related?.map((item) => (
                                             <RelatedPostCard key={item._id} post={item} rated={false}  />

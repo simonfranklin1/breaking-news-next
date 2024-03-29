@@ -1,7 +1,7 @@
 import News from "@/models/News";
 import { connectToDataBase } from "@/utils/conn"
 
-export const PATCH = async(req: Request, { params }: any) => {
+export const PATCH = async(req: Request, { params }: { params: { id: string }}) => {
     const id = params.id;
     const { userId } = await req.json();
     try {

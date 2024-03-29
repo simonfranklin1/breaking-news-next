@@ -17,7 +17,7 @@ export const PATCH = async(req: Request, { params }: any) => {
 
         if(!commentPost) return new Response(JSON.stringify({ message: "Alguma coisa deu errado, tente novamente mais tarde!" }), { status: 400 });
 
-        return new Response(JSON.stringify({ message: "Comentário adicionado com sucesso", commentId: idComment }), { status: 200 });
+        return new Response(JSON.stringify({ message: "Comentário adicionado", commentId: idComment }), { status: 200 });
     } catch (error: any) {
         return new Response(error.message, { status: 500 });
     }
