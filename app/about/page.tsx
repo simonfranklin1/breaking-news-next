@@ -4,18 +4,15 @@ const page = () => {
     return (
         <div>
             <div className='flex flex-col gap-9'>
-                <h1 className='capitalize text-2xl font-bold'>
+                <div className='capitalize text-2xl font-bold'>
                     Início / Sobre
-                </h1>
+                </div>
 
                 <div>
-                    <div className="text-2xl font-semibold mb-3">
-                        Sobre Nós
-                    </div>
-                    <div className='font-semibold text-3xl mb-6'>
+                    <div className='font-semibold sm:text-3xl text-2xl mb-6'>
                         Crie narrativas que ascendam a inspiração, conhecimento e entretenimento
                     </div>
-                    <div className='text-xl text-gray-600'>
+                    <div className='sm:text-xl text-lg text-gray-600'>
                         Bem-vindo ao Breaking News, onde acreditamos que cada voz é importante.
                         <br /><br />
                         Breaking News não é apenas um site de notícias – é uma plataforma para as pessoas, pelas pessoas. Compreendemos o poder do conteúdo voltado para a comunidade, e é por isso que convidamos usuários como você a contribuir e compartilhar suas perspectivas sobre as histórias que mais importam para você.

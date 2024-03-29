@@ -9,8 +9,8 @@ import React from "react";
 const MobileNavbar = ({ open, setOpen, username, userImage }: { open: boolean, setOpen: Dispatch<SetStateAction<boolean>>, username: string, userImage: string }) => {
     return (
         <>
-            <div className={`bg-black fixed top-0 left-0 w-full h-full opacity-60 ${ open ? "" : "hidden" }`}></div>
-            <div className={`fixed top-0 ${open ? "right-0" : "right-[-100%]"} flex gap-8 flex-col duration-500 w-[60%] h-full sm:hidden bg-white z-20 p-6`}>
+            <div className={`bg-black fixed top-0 left-0 w-full h-full z-20 opacity-60 ${ open ? "" : "hidden" }`} onClick={() => setOpen(false)}></div>
+            <div className={`fixed top-0 ${open ? "right-0" : "right-[-100%]"} flex gap-8 flex-col duration-500 w-[60%] h-full sm:hidden bg-white z-30 p-6`}>
                 <div className="text-xl text-end w-full" onClick={() => setOpen(false)}>
                     <IoMdClose />
                 </div>
