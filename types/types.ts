@@ -7,7 +7,7 @@ export interface UserI {
     background: string;
     followers: [];
     following: [];
-    saved: savedPost[];
+    saved?: savedPost[];
 }
 
 export interface NewsI {

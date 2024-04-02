@@ -2,13 +2,13 @@ import User from "@/models/User";
 import { connectToDataBase } from "@/utils/conn";
 
 
-export const GET = async(req: Request, { params }: { params : { id: string } }) => {
+export const GET = async(req: Request, { params }: { params: { id: string } }) => {
     const id = params.id;
 
     try {
         await connectToDataBase();
 
-        const user = await User.findById(id).select("-saved")
+        const user = await User.findById(id).select("+saved");
 
         if(!user) {
             return new Response(JSON.stringify({ message: "Usuário não encontrado!"}), { status: 404 });

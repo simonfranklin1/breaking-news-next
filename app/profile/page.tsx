@@ -15,9 +15,15 @@ const page = () => {
   useEffect(() => {
     window.scroll({
       top: 0
-    })
+    });
 
-    findUser(`${session?.user.id}`).then(response => setUser(response));
+    (async () => {
+      const res = await fetch(`/api/user/${session?.user.id}/my`);
+      const data: UserI = await res.json();
+
+      return data;
+    })().then(response => setUser(response))
+
     findUserPosts(`${session?.user.id}`).then(response => setPosts(response));
 
   }, [session])
