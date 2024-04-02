@@ -30,11 +30,11 @@ const PostComment = ({ comment, user, postId, comments, setComments }:
     }
 
     return (
-        <div className="flex items-start gap-2 sm:justify-normal max-w-[95%]">
+        <div className="flex items-start gap-2 mb-6 sm:justify-normal max-w-[95%]">
             <Link href={comment.userId === user.id ? "/profile" : "/profile/" + comment.userId} >
                 <img src={comment.userId === user.id ? user.image : comment.avatar} alt={comment.username} className="sm:w-12 sm:h-12 w-7 h-7 rounded-full object-cover" />
             </Link>
-            <div className="flex flex-col px-5 gap-4 relative max-w-[90%]">
+            <div className="flex flex-col px-5 gap-2 relative max-w-[90%]">
                 <div className="text-lg font-bold">
                     {comment.username}
                 </div>
@@ -93,7 +93,7 @@ const PostInteractions = ({ likes, comments, alreadyLiked, handleLike, handleCom
             <div className="py-4 text-lg border-t-2 border-b-2 text-center">
                 Comentários
             </div>
-            <div className={`flex flex-col ${comments.length < 1 ? "justify-center" : ""} px-2 py-4 gap-6 min-h-[300px] mb-8`}>
+            <div className={`flex flex-col ${comments.length < 1 ? "justify-center" : ""} px-2 py-4 min-h-[300px] mb-8`}>
                 {
                     comments.length < 1 && (
                         <div className="text-xl text-center">
