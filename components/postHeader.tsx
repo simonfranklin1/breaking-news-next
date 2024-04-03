@@ -3,7 +3,8 @@ import { BsThreeDots } from "react-icons/bs";
 import { TbPointFilled } from "react-icons/tb";
 import Link from "next/link";
 import { NewsI, savedPost } from "@/types/types";
-import moment from "moment";
+import moment from 'moment';
+import "moment/locale/pt-br";
 
 interface postHeaderProps {
     post: NewsI;

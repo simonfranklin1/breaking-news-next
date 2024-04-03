@@ -2,7 +2,8 @@ import { NewsI } from "@/types/types"
 import { truncateText } from "@/utils/utils"
 import Link from "next/link"
 import React from "react"
-import moment from "moment";
+import moment from 'moment';
+import "moment/locale/pt-br";
 import { TbPointFilled } from "react-icons/tb";
 
 const PostBanner = ({ post }: { post: NewsI }) => {

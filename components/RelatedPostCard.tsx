@@ -3,7 +3,8 @@ import React from "react"
 import Link from "next/link"
 import { truncateText } from "@/utils/utils"
 import { TbPointFilled } from "react-icons/tb";
-import moment from "moment";
+import moment from 'moment';
+import "moment/locale/pt-br";
 
 const RelatedPostCard = ({ post, rated }: { post: NewsI, rated: boolean }) => {
   moment.locale("pt-br");

@@ -2,6 +2,7 @@ import { NewsI, UserI } from '@/types/types';
 import Link from 'next/link';
 import { truncateText } from '@/utils/utils';
 import moment from 'moment';
+import "moment/locale/pt-br";
 import { TbPointFilled } from 'react-icons/tb';
 
 
