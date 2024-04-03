@@ -8,7 +8,7 @@ export const GET = async(req: Request, { params }: { params : { id: string } }) 
     try {
         await connectToDataBase();
 
-        const user = await User.findById(id).select("-saved")
+        const user = await User.findById(id);
 
         if(!user) {
             return new Response(JSON.stringify({ message: "Usuário não encontrado!"}), { status: 404 });

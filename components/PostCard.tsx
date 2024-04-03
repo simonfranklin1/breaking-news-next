@@ -1,10 +1,11 @@
 import { NewsI, UserI } from '@/types/types';
 import Link from 'next/link';
 import { truncateText } from '@/utils/utils';
+import moment from 'moment';
+import { TbPointFilled } from 'react-icons/tb';
 
 
 interface PostCardProps {
-
     _id: string;
     title: string;
     text: string;
@@ -15,9 +16,12 @@ interface PostCardProps {
     };
     category: string;
     top?: boolean;
+    createdAt: Date;
 }
 
-const PostCard = ({ _id, banner, category, creator, text, title, top }: PostCardProps) => {
+const PostCard = ({ _id, banner, category, creator, text, title, top, createdAt }: PostCardProps) => {
+    moment.locale("pt-br")
+
     return (
         <Link href={"/posts/" + _id}>
             <div className={`flex w-full h-full ${top ? "lg:flex-row flex-col lg:gap-12 sm:gap-4" : "flex-col gap-6"} group`}>
@@ -29,10 +33,10 @@ const PostCard = ({ _id, banner, category, creator, text, title, top }: PostCard
                 <div className={`flex flex-col py-4 gap-2 ${top ? "pl-0 lg:w-[50%] sm:w-full justify-between" : "pt-0 h-[50%] justify-between"}`}>
 
                     <div className={`flex flex-col ${top ? "gap-4" : "gap-2"}`}>
-                        <div className={`flex items-center  ${top ? "gap-4" : "gap-2"}`}>
-                            <img src={creator.avatar} alt="creator" className={`${top ? "w-10 h-10" : "w-8 h-8"} rounded-full object-cover`} />
+                        <div className={`flex items-center ${top ? "gap-4" : "gap-2"} text-base`}>
+                            <img src={creator.avatar} alt="creator" className={`${top ? "w-10 h-10" : "w-7 h-7"} rounded-full object-cover`} />
                             <div className="text-gray-600">
-                                {creator.name}
+                                {creator.name} <span className="inline-block"><TbPointFilled /></span> {moment(createdAt).fromNow()}
                             </div>
                         </div>
                         <div className={`${top ? "lg:text-5xl sm:text-4xl text-2xl" : "text-lg"} font-bold font-news group-hover:text-blue-500 duration-300`}>

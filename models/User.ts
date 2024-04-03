@@ -38,7 +38,8 @@ const UserSchema = new Schema ({
     },
     saved: {
         type: Array,
-        require: true
+        require: true,
+        select: false
     }
 })
 

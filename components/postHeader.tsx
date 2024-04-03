@@ -3,6 +3,7 @@ import { BsThreeDots } from "react-icons/bs";
 import { TbPointFilled } from "react-icons/tb";
 import Link from "next/link";
 import { NewsI, savedPost } from "@/types/types";
+import moment from "moment";
 
 interface postHeaderProps {
     post: NewsI;
@@ -22,6 +23,8 @@ interface postHeaderProps {
 }
 
 const PostHeader = ({ openMenu, post, saved, setOpenMenu, setSaved, user, handleDelete, handleSavePost }: postHeaderProps) => {
+    moment.locale("pt-br");
+ 
     return (
         <div className="flex flex-col">
             <div className="flex justify-between sm:gap-8 lg:gap-16">
@@ -66,7 +69,7 @@ const PostHeader = ({ openMenu, post, saved, setOpenMenu, setSaved, user, handle
                         <img src={post.creator.avatar} alt="creator" className="w-6 h-6 sm:w-8 sm:h-8 rounded-full object-cover" />
                     </Link>
                     <div className="text-gray-600">
-                        {post.creator.name} <span className="inline-block"><TbPointFilled /></span> {new Date(post.createdAt).toLocaleDateString("pt-BR", { hour: "2-digit", minute: "2-digit", year: "numeric", month: "short", day: "numeric" })}
+                        {post.creator.name} <span className="inline-block"><TbPointFilled /></span> {moment(post.createdAt).fromNow()}
                     </div>
                 </div>
                 <Link href={"/posts/category/" + post.category} className="text-blue-700 font-medium capitalize">

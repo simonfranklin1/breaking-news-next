@@ -3,8 +3,11 @@ import React from "react"
 import Link from "next/link"
 import { truncateText } from "@/utils/utils"
 import { TbPointFilled } from "react-icons/tb";
+import moment from "moment";
 
 const RelatedPostCard = ({ post, rated }: { post: NewsI, rated: boolean }) => {
+  moment.locale("pt-br");
+
   return (
     <Link href={"/posts/" + post._id}>
       <div className={`flex flex-col group ${rated ? "h-[270px]" : "h-[300px]"}`}>
@@ -15,7 +18,7 @@ const RelatedPostCard = ({ post, rated }: { post: NewsI, rated: boolean }) => {
           <div className={`flex items-center gap-2 font-[10px]`}>
             <img src={post.creator.avatar} alt="creator" className={`w-6 h-6 rounded-full object-cover`} />
             <div className="text-gray-600">
-              {post.creator.name} <span className={`${rated ? "hidden" : "inline-block"}`}><TbPointFilled /></span> <span className={`${rated ? "hidden" : "inline-block"}`}>{new Date(post.createdAt).toLocaleDateString("pt-BR", { year: "numeric", month: "short", day: "numeric" })}</span>
+              {post.creator.name} <span className={`${rated ? "hidden" : "inline-block"}`}><TbPointFilled /></span> <span className={`${rated ? "hidden" : "inline-block"}`}>{moment(post.createdAt).fromNow()}</span>
             </div>
           </div>
           <div className="text-[14px] font-bold bg-white capitalize font-news duration-300 group-hover:text-blue-500">

@@ -49,7 +49,7 @@ const handler = NextAuth({
         async session({ session }): Promise<Session> {
             const sessionUser = await User.findOne({
                 email: session.user.email
-            })
+            }).select("+saved");
 
             session.user.id = String(sessionUser._id);
             session.user.saved = sessionUser.saved;
