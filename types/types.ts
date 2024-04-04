@@ -33,6 +33,7 @@ export interface savedPost {
         name: string;
         avatar: string;
     };
+    createdAt: Date;
 }
 
 export interface userDataI {

@@ -144,7 +144,7 @@ const page = ({ params }: any) => {
                 if (saved) {
                     session.user.saved = savedPosts.filter((save) => save.postId !== id)
                 } else {
-                    session.user.saved = [...savedPosts, { postId: id, banner: post.banner, category: post.category, creator: { avatar: post.creator.avatar, name: post.creator.name, _id: post.creator._id }, text: post.text, title: post.title }]
+                    session.user.saved = [...savedPosts, { postId: id, banner: post.banner, category: post.category, creator: { avatar: post.creator.avatar, name: post.creator.name, _id: post.creator._id }, text: post.text, title: post.title, createdAt: post.createdAt }]
                 }
 
                 toast.success(data.message);

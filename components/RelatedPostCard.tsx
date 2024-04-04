@@ -19,7 +19,7 @@ const RelatedPostCard = ({ post, rated }: { post: NewsI, rated: boolean }) => {
           <div className={`flex items-center gap-2 font-[10px]`}>
             <img src={post.creator.avatar} alt="creator" className={`w-6 h-6 rounded-full object-cover`} />
             <div className="text-gray-600">
-              {post.creator.name} <span className={`${rated ? "hidden" : "inline-block"}`}><TbPointFilled /></span> <span className={`${rated ? "hidden" : "inline-block"}`}>{moment(post.createdAt).fromNow()}</span>
+              {post.creator.name} <span className="inline-block"><TbPointFilled /></span> <span className="inline-block">{moment(post.createdAt).fromNow()}</span>
             </div>
           </div>
           <div className="text-[14px] font-bold bg-white capitalize font-news duration-300 group-hover:text-blue-500">
