@@ -133,13 +133,14 @@ const page = ({ params }: any) => {
                         username: post.creator.username,
                         name: post.creator.name
                     },
-                    createdAt: post.createdAt
+                    createdAt: `${post.createdAt}`
                 })
             })
 
             const data: { message: string } = await res.json();
 
             if (res.ok) {
+                console.log(post.createdAt)
 
                 if (saved) {
                     session.user.saved = savedPosts.filter((save) => save.postId !== id)
