@@ -1,4 +1,5 @@
 import { Schema, models, model } from "mongoose";
+import User from "./User";
 
 const NewsSchema = new Schema({
     title: {
@@ -19,7 +20,7 @@ const NewsSchema = new Schema({
     },
     creator: {
         type: Schema.Types.ObjectId,
-        ref: "User",
+        ref: User,
         require: true,
     },
     createdAt: {
