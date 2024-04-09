@@ -4,7 +4,7 @@ import { FaRegHeart, FaHeart } from "react-icons/fa";
 import { FaRegComment } from "react-icons/fa6";
 import Link from 'next/link';
 import { deleteComment } from '@/utils/utils';
-import { toast } from 'react-toastify';
+import { toast } from 'react-hot-toast';
 import { FaRegTrashAlt, FaArrowCircleDown } from "react-icons/fa";
 
 const PostComment = ({ comment, user, postId, comments, setComments }:

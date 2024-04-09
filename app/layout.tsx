@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Navbar, Provider, Footer } from "@/components";
-import { ToastContainer } from "react-toastify"
-import "react-toastify/dist/ReactToastify.css"
+import { Toaster } from "react-hot-toast"
 
 export const metadata: Metadata = {
   title: "Breaking News",
@@ -18,18 +17,12 @@ export default function RootLayout({
   return (
     <html lang="pt-br">
       <body>
-        <ToastContainer
-          position="bottom-right"
-          autoClose={5000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick={true}
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          theme="light"
-        />
+      <Toaster toastOptions={{
+          style: {
+            background: "rgb(51 65 81)",
+            color: "#FFF"
+          }
+        }} />
         <Provider>
           <Navbar />
           <div className="max-w-[1100px] mx-auto px-6 sm:px-8 lg:px-0 min-h-screen">

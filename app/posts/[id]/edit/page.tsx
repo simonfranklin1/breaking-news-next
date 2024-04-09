@@ -6,7 +6,7 @@ import { createPost, editPost, findPost } from '@/utils/utils';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { toast } from 'react-toastify';
+import { toast } from 'react-hot-toast';
 
 const page = ({ params }: { params: { id: string } }) => {
     const id = params.id;

@@ -4,7 +4,7 @@ import { NewsI, likePostI, postCommentI } from '@/types/types';
 import { commentPost, deletePost, findPost, findPostsByCategory, findRelatedPosts, likePost } from '@/utils/utils';
 import { useSession } from 'next-auth/react';
 import React, { FormEvent, useEffect, useState } from 'react';
-import { toast } from 'react-toastify';
+import { toast } from 'react-hot-toast';
 import { Loading, PostHeader, PostInteractions } from '@/components';
 import RelatedPostCard from '@/components/RelatedPostCard';
 import { useRouter } from 'next/navigation';

@@ -1,6 +1,6 @@
 import { NewsI, UserI, userDataI } from "@/types/types";
 import { signIn } from "next-auth/react";
-import { toast } from "react-toastify";
+import { toast } from "react-hot-toast";
 
 export const truncateText = (text: string, number: number): string => {
   if (text.length < number) {

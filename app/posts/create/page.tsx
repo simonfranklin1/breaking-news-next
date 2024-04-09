@@ -5,7 +5,7 @@ import { createPost } from '@/utils/utils';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
-import { toast } from 'react-toastify';
+import { toast } from 'react-hot-toast';
 
 const page = () => {
   const { data: session } = useSession();

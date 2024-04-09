@@ -6,7 +6,7 @@ import { editSchema } from '@/utils/schema';
 import { Button } from '@/components';
 import { z } from "zod";
 import { useEffect, useState } from "react";
-import { toast } from "react-toastify";
+import { toast } from "react-hot-toast";
 import { UserI } from "@/types/types";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";

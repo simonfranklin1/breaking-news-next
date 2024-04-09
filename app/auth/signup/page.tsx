@@ -8,7 +8,7 @@ import { z } from "zod";
 import Link from "next/link";
 import { createNewUser } from "@/utils/utils";
 import { useState } from "react";
-import { toast } from "react-toastify";
+import { toast } from "react-hot-toast";
 
 const SignInPage = () => {
     const { register, handleSubmit, formState: { errors } } = useForm<z.infer<typeof signUpSchema>>({ resolver: zodResolver(signUpSchema) });
