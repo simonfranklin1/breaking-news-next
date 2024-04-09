@@ -58,7 +58,9 @@ const PostForm = ({ handleFunction, action, post, loading }: {
             <option value="crime">Crime</option>
             <option value="cultura">Cultura</option>
             <option value="trabalho">Trabalho</option>
-            <option value="viagem">Viagem</option>
+            <option value="viagens">Viagens</option>
+            <option value="automobilismo">Automobilismo</option>
+            <option value="tecnologia">Tecnologia</option>
           </select>
           {errors.category?.message && <p className="text-red-600">{`${errors.category?.message}`}</p>}
         </label>

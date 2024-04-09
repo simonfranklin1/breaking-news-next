@@ -9,11 +9,14 @@ import TopCreators from './TopCreators';
 
 const Feed = () => {
     const [ posts, setPosts ] = useState<NewsI[] | null>(null);
-    const rated = posts ? posts.sort((a, b) => a.likes.length + b.likes.length) : null;
+    const [ rated, setRated ] = useState<NewsI[] | null>(null);
     const latestPost = posts ? posts[0] : null;
 
     useEffect(() => {
-        findLatestPosts().then(response => setPosts(response));
+        findLatestPosts().then((response) => {
+            setPosts(response);
+            setRated(response.sort((a, b) => a.likes.length + b.likes.length));
+        });
     }, [])
 
   return (
