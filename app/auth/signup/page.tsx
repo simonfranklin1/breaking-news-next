@@ -7,10 +7,18 @@ import { Button } from '@/components';
 import { z } from "zod";
 import Link from "next/link";
 import { createNewUser } from "@/utils/utils";
-import { useState } from "react";
-import { toast } from "react-hot-toast";
+import { useEffect, useState } from "react";
+import { FcGoogle } from "react-icons/fc";
+import { signIn, useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 const SignInPage = () => {
+    const router = useRouter();
+    const { data: session } = useSession();
+    useEffect(() => {
+        if(session?.user) router.push("/")
+    }, [session])
+
     const { register, handleSubmit, formState: { errors } } = useForm<z.infer<typeof signUpSchema>>({ resolver: zodResolver(signUpSchema) });
     const [loading, setLoading] = useState<boolean>(false);
 
@@ -24,6 +32,18 @@ const SignInPage = () => {
             console.log(error)
         } finally {
             setLoading(false);
+        }
+    }
+
+    const continueWithGoogle = () => {
+        setLoading(true);
+
+        try {
+            signIn("google")
+        } catch (error) {
+            console.log(error);
+        } finally {
+            setLoading(false)
         }
     }
 
@@ -50,6 +70,10 @@ const SignInPage = () => {
                     {errors.password?.message && <p className="text-red-600">{`${errors.password?.message}`}</p>}
                 </label>
                 <Button type='submit' text={ !loading ? "CRIAR" : "CRIANDO..."} styles={ loading ? " pointer-events-none" : "" } />
+                
+                <button type="button" className="bg-white border-[1px] flex items-center justify-center gap-2 border-slate-400 duration-300 hover:shadow-md px-3 py-2 rounded-md" onClick={continueWithGoogle} >
+                    <FcGoogle className="text-xl" /> Continuar com Google 
+                </button>
             </div>
 
             <Link href={"/auth/signin"} className="font-medium text-center">

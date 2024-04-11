@@ -17,7 +17,7 @@ const UserSchema = new Schema ({
     },
     password: {
         type: String,
-        require: true,
+        require: false,
         select: false
     },
     avatar: {
@@ -26,7 +26,7 @@ const UserSchema = new Schema ({
     },
     background: {
         type: String,
-        require: true,
+        require: false,
     },
     followers: {
         type: Array,

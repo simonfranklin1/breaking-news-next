@@ -1,15 +1,21 @@
 import User from "@/models/User";
 import NextAuth from "next-auth"
 import CredentialsProvider from "next-auth/providers/credentials";
+import GoogleProvider from "next-auth/providers/google";
 import { Session } from "next-auth";
 import { connectToDataBase } from "@/utils/conn";
 import bcrypt from "bcryptjs";
+import { generateUserName } from "@/utils/utils";
 
 const handler = NextAuth({
     session: {
         strategy: "jwt"
     },
     providers: [
+        GoogleProvider({
+            clientId: process.env.GOOGLE_CLIENT_ID as string,
+            clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
+        }),
         CredentialsProvider({
             type: "credentials",
             name: "Credentials",
@@ -56,6 +62,37 @@ const handler = NextAuth({
 
             return session;
         },
+        async signIn({ account, profile }) {
+            if (account?.provider === "google" && profile) {
+                try {
+                    await connectToDataBase();
+
+                    console.log("tentando fazer login com google")
+                    console.log(profile);
+
+                    const existingUser = await User.findOne({
+                        email: profile.email
+                    })
+
+                    if (!existingUser) {
+                        const username = generateUserName(profile?.name || "");
+
+                        await User.create({
+                            name: profile?.name,
+                            email: profile?.email,
+                            avatar: profile?.picture,
+                            username: username
+                        })
+                    }
+
+                    return true
+                } catch (error) {
+                    return false
+                }
+            }
+
+            return true
+        }
     }
 })
 
