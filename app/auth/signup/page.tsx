@@ -71,9 +71,7 @@ const SignInPage = () => {
                 </label>
                 <Button type='submit' text={ !loading ? "CRIAR" : "CRIANDO..."} styles={ loading ? " pointer-events-none" : "" } />
                 
-                <button type="button" className="bg-white border-[1px] flex items-center justify-center gap-2 border-slate-400 duration-300 hover:shadow-md px-3 py-2 rounded-md" onClick={continueWithGoogle} >
-                    <FcGoogle className="text-xl" /> Continuar com Google 
-                </button>
+                
             </div>
 
             <Link href={"/auth/signin"} className="font-medium text-center">
