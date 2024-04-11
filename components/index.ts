@@ -14,6 +14,7 @@ import Loading from "./Loading";
 import PostHeader from "./postHeader";
 import RatedPosts from "./RatedPosts";
 import Feed from "./Feed";
+import CreatorCard from "./CreatorCard";
 
 export {
     Navbar,
@@ -31,5 +32,6 @@ export {
     Loading,
     PostHeader,
     RatedPosts,
-    Feed
+    Feed,
+    CreatorCard
 }

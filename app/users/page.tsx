@@ -1,16 +1,14 @@
 "use client"
 
 import { useEffect, useState } from "react";
-import { PostList } from "../../components";
-import { getTopCreators, getCreators } from "@/components/TopCreators";
-import { UserI } from "@/types/types";
-import UserCard from "@/components/UserCard";
+import { getTopCreators } from "@/components/TopCreators";
+import CreatorCard, { TopCreatorI } from "@/components/CreatorCard";
 
 const page = () => {
-    const [creators, setCreators] = useState<UserI[] | null>(null);
+    const [creators, setCreators] = useState<TopCreatorI[] | null>(null);
 
     useEffect(() => {
-        getCreators().then(response => setCreators(response))
+        getTopCreators().then(response => setCreators(response))
     }, [])
 
     return (
@@ -19,10 +17,10 @@ const page = () => {
                 Início / Criadores
             </h1>
             <div>
-                <div className="posts_layout">
+                <div className="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-x-6 gap-y-6">
                     {
                         creators && creators.map((creator) => (
-                            <UserCard key={creator._id} {...creator} />
+                            <CreatorCard key={creator.user._id} {...creator} />
                         ))
                     }
                 </div>

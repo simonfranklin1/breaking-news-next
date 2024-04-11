@@ -3,12 +3,13 @@
 import { UserI } from "@/types/types";
 import { PostList } from ".";
 import { useEffect, useState } from "react";
+import { TopCreatorI } from "./CreatorCard";
 
 export const getTopCreators = async () => {
   const res = await fetch("api/user/top");
   const data = await res.json();
 
-  const users: UserI[] = data.users;
+  const users: TopCreatorI[] = data.users;
 
   return users;
 }
@@ -26,7 +27,11 @@ const TopCreators = () => {
   const [creators, setCreators] = useState<UserI[] | null>(null);
 
   useEffect(() => {
-    getTopCreators().then(response => setCreators(response))
+    getTopCreators().then(response => {
+      setCreators(response.sort((a, b) => a.posts.length + b.posts.length).map((item) => item.user))
+      console.log(response)
+    })
+
   }, [])
 
   return (
