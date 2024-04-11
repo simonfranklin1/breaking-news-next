@@ -35,11 +35,11 @@ const SignInPage = () => {
         }
     }
 
-    const continueWithGoogle = async() => {
+    const continueWithGoogle = () => {
         setLoading(true);
 
         try {
-            await signIn("google");
+            signIn("google")
         } catch (error) {
             console.log(error);
         } finally {
