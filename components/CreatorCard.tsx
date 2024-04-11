@@ -26,11 +26,11 @@ const CreatorCard = ({ user, posts }: TopCreatorI) => {
     const { data: session } = useSession();
 
     return (
-        <div className='w-full flex flex-col bg-white rounded-md border-[1px] p-5 gap-5 col-span-2'>
+        <div className='w-full flex flex-col bg-white rounded-md border-[1px] p-5 gap-6'>
             <div className='flex justify-start items-center flex-1 gap-5 min-w-full'>
                 <img src={user.avatar} alt={"Avatar " + user.name} className='h-28 w-28 rounded-full object-cover' />
                 <div className="flex flex-col justify-between">
-                    <div className="text-2xl font-bold">
+                    <div className="lg:text-2xl text-xl tex font-bold">
                         {user.name}
                     </div>
                     <div className="text-lg text-slate-600">

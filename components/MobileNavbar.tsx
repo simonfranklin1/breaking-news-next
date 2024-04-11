@@ -9,7 +9,7 @@ import React from "react";
 const MobileNavbar = ({ open, setOpen, username, userImage }: { open: boolean, setOpen: Dispatch<SetStateAction<boolean>>, username: string, userImage: string }) => {
     return (
         <>
-            <div className={`bg-black fixed top-0 left-0 w-full h-full z-20 opacity-60 ${ open ? "" : "hidden" }`} onClick={() => setOpen(false)}></div>
+            <div className={`bg-black fixed top-0 left-0 w-full h-full z-20 opacity-60 ${open ? "" : "hidden"}`} onClick={() => setOpen(false)}></div>
             <div className={`fixed top-0 ${open ? "right-0" : "right-[-100%]"} flex gap-8 flex-col duration-500 w-[60%] h-full sm:hidden bg-white z-30 p-6`}>
                 <div className="text-xl text-end w-full" onClick={() => setOpen(false)}>
                     <IoMdClose />
@@ -34,6 +34,18 @@ const MobileNavbar = ({ open, setOpen, username, userImage }: { open: boolean, s
                     </Link>
                     <Link href={"/posts"} className="text-gray-600 font-semibold text-xl" onClick={() => setOpen(false)}>
                         Notícias
+                    </Link>
+                    <Link href={"/posts/category/esporte"} className="text-gray-600 font-semibold text-xl" onClick={() => setOpen(false)}>
+                        Esporte
+                    </Link>
+                    <Link href={"/posts/category/tecnologia"} className="text-gray-600 font-semibold text-xl" onClick={() => setOpen(false)}>
+                        Tecnologia
+                    </Link>
+                    <Link href={"/posts/category/animes"} className="text-gray-600 font-semibold text-xl" onClick={() => setOpen(false)}>
+                        Animes
+                    </Link>
+                    <Link href={"/posts/category/games"} className="text-gray-600 font-semibold text-xl" onClick={() => setOpen(false)}>
+                        Games
                     </Link>
                     <div className="text-gray-600 font-semibold text-xl" onClick={() => {
                         signOut({ callbackUrl: "/" })

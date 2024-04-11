@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { getTopCreators } from "@/components/TopCreators";
 import CreatorCard, { TopCreatorI } from "@/components/CreatorCard";
+import { Loading } from "@/components";
 
 const page = () => {
     const [creators, setCreators] = useState<TopCreatorI[] | null>(null);
@@ -17,13 +18,19 @@ const page = () => {
                 Início / Criadores
             </h1>
             <div>
-                <div className="grid lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-x-6 gap-y-6">
-                    {
-                        creators && creators.map((creator) => (
-                            <CreatorCard key={creator.user._id} {...creator} />
-                        ))
-                    }
-                </div>
+                {
+                    creators && (
+                        <div className="grid lg:grid-cols-2 grid-cols-1 gap-x-8 gap-y-8">
+                            {
+                                creators.sort((a, b) => a.posts.length + b.posts.length).map((creator) => (
+                                    <CreatorCard key={creator.user._id} {...creator} />
+                                ))
+                            }
+                        </div>
+                    ) || (
+                        <Loading />
+                    )
+                }
             </div>
         </div>
     )
