@@ -67,9 +67,6 @@ const handler = NextAuth({
                 try {
                     await connectToDataBase();
 
-                    console.log("tentando fazer login com google")
-                    console.log(profile);
-
                     const existingUser = await User.findOne({
                         email: profile.email
                     })

@@ -42,6 +42,7 @@ export interface userDataI {
     password: string;
     avatar?: string;
     background?: string;
+    posts?: [];
 }
   
 export interface likePostI {
