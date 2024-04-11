@@ -6,7 +6,7 @@ export const GET = async (req: Request) => {
     try {
         await connectToDataBase();
 
-        const findUsers = await User.find({}).sort({ _id: 1 })
+        const findUsers = await User.find({})
 
         if (!findUsers) {
             return new Response(JSON.stringify({ message: "Usuários não encontrados!" }), { status: 400 });
@@ -22,7 +22,7 @@ export const GET = async (req: Request) => {
             return new Response(JSON.stringify({ message: "Usuários não encontrados!" }), { status: 400 });
         }
 
-        const topCreators = usersWithPosts.sort((a, b) => a.posts.length - b.posts.length).filter((data) => data.posts.length > 0);
+        const topCreators = usersWithPosts.sort((a, b) => a.posts.length + b.posts.length).filter((data) => data.posts.length > 0);
 
         return new Response(JSON.stringify({ users: topCreators }), { status: 200 })
     } catch (error: any) {

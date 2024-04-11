@@ -28,7 +28,7 @@ const page = ({ params }: { params: { category: string } }) => {
             </h1>
             <div className='sm:flex flex-col gap-9 hidden'>
               <PostBanner post={firstPost} />
-              <div className="grid lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-6">
+              <div className="posts_layout">
                 {
                   anotherPosts.map((post) => <PostCard key={post._id} {...post} top={false} />)
                 }

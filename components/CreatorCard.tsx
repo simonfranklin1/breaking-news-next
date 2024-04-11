@@ -26,23 +26,23 @@ const CreatorCard = ({ user, posts }: TopCreatorI) => {
     const { data: session } = useSession();
 
     return (
-        <div className='w-full flex flex-col bg-white rounded-md border-[1px] p-5 gap-5'>
-            <div className='flex justify-start items-center flex-1 gap-4 min-w-full'>
+        <div className='w-full flex flex-col bg-white rounded-md border-[1px] p-5 gap-5 col-span-2'>
+            <div className='flex justify-start items-center flex-1 gap-5 min-w-full'>
                 <img src={user.avatar} alt={"Avatar " + user.name} className='h-28 w-28 rounded-full object-cover' />
                 <div className="flex flex-col justify-between">
-                    <div className="font-news text-xl font-bold">
+                    <div className="text-2xl font-bold">
                         {user.name}
                     </div>
-                    <div className="text-lg text-blue-400">
+                    <div className="text-lg text-slate-600">
                         @{user.username}
                     </div>
-                    <div>
+                    <div className="text-lg text-slate-600">
                         {posts.length} publicações
                     </div>
                 </div>
             </div>
-            <div className='w-full'>
-                <Button text='Ver Perfil' type='button' handleClick={() => router.push(user._id === session?.user.id ? "/profile" : "/profile/" + user._id)} />
+            <div>
+                <Button text='Ver Perfil' type='button' styles='w-full' handleClick={() => router.push(user._id === session?.user.id ? "/profile" : "/profile/" + user._id)} />
             </div>
         </div>
     )
