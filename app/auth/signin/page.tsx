@@ -3,7 +3,7 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { signInSchema } from '@/utils/schema';
-import { Button } from '@/components';
+import { Button, ContinueWithGoogle } from '@/components';
 import { z } from "zod";
 import { signIn, useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
@@ -44,18 +44,6 @@ const SignInPage = () => {
         }
     }
 
-    const continueWithGoogle = () => {
-        setLoading(true);
-
-        try {
-            signIn("google")
-        } catch (error) {
-            console.log(error);
-        } finally {
-            setLoading(false)
-        }
-    }
-
     return (
         <form className='flex flex-col bg-white shadow-lg rounded-lg p-8 sm:w-[400px] w-[390px]' onSubmit={handleSubmit(handleSignIn)}>
             <div className="text-2xl font-semibold text-center">
@@ -75,9 +63,7 @@ const SignInPage = () => {
                 </label>
                 <Button type='submit' text={loading ? "ENTRANDO..." : "ENTRAR"} />
 
-                <button type="button" className="bg-white border-[1px] flex items-center justify-center gap-2 border-slate-400 duration-300 hover:shadow-md px-3 py-2 rounded-md" onClick={continueWithGoogle} >
-                    <FcGoogle className="text-xl" /> Continuar com Google
-                </button>
+                <ContinueWithGoogle />
             </div>
 
             <Link href={"/auth/signup"} className="font-medium text-center">

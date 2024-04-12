@@ -14,7 +14,17 @@ const Feed = () => {
 
     useEffect(() => {
         findLatestPosts().then(response => setPosts(response));
-        findRatedPosts().then(response => setRated(response));
+        findRatedPosts().then((response) => {
+            setRated(response.sort((a, b) => {
+                if (a.likes.length > b.likes.length) {
+                    return -1
+                } else if (a.likes.length < b.likes.length) {
+                    return 1
+                } else {
+                    return 0
+                }
+            }))
+        });
     }, [])
 
   return (

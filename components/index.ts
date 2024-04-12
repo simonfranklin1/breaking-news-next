@@ -15,6 +15,7 @@ import PostHeader from "./postHeader";
 import RatedPosts from "./RatedPosts";
 import Feed from "./Feed";
 import CreatorCard from "./CreatorCard";
+import ContinueWithGoogle from "./ContinueWithGoogle";
 
 export {
     Navbar,
@@ -33,5 +34,6 @@ export {
     PostHeader,
     RatedPosts,
     Feed,
-    CreatorCard
+    CreatorCard,
+    ContinueWithGoogle
 }
