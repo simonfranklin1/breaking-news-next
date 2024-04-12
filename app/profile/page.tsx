@@ -5,6 +5,7 @@ import { findUser, findUserPosts } from '@/utils/utils';
 import { useSession } from 'next-auth/react';
 import React, { useEffect, useState } from 'react';
 import Profile from '@/components/Profile';
+import { Loading } from '@/components';
 
 const page = () => {
   const { data: session } = useSession();
@@ -41,6 +42,8 @@ const page = () => {
             show={show}
             setShow={setShow}
           />
+        ) || (
+          <Loading />
         )
       }
     </>
