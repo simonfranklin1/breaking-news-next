@@ -19,8 +19,15 @@ const TopCreators = () => {
 
   useEffect(() => {
     getTopCreators().then((response) => {
-      setCreators(response.sort((a, b) => a.posts.length + b.posts.length).map((item) => item.user))
-      console.log(response)
+      setCreators(response.sort((a, b) => {
+        if(a.posts.length > b.posts.length) {
+          return -1
+        } else if (a.posts.length < b.posts.length) {
+          return 1
+        } else {
+          return 0
+        }
+      }).map((item) => item.user))
     })
 
   }, [])

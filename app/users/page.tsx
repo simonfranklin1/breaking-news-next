@@ -9,7 +9,18 @@ const page = () => {
     const [creators, setCreators] = useState<TopCreatorI[] | null>(null);
 
     useEffect(() => {
-        getTopCreators().then(response => setCreators(response))
+        getTopCreators().then((response) => {
+            setCreators(response.sort((a, b) => {
+                if (a.posts.length > b.posts.length) {
+                    return -1
+                } else if (a.posts.length < b.posts.length) {
+                    return 1
+                } else {
+                    return 0
+                }
+            }))
+        })
+
     }, [])
 
     return (
