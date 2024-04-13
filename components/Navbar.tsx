@@ -19,7 +19,7 @@ const Navbar = () => {
   const [openMobileMenu, setOpenMobileMenu] = useState<boolean>(false);
 
   return (
-    <nav className='bg-white w-full py-7 px-4 sm:px-8 lg:px-0'>
+    <nav className='bg-white w-full py-7 px-4 sm:px-8 xl:px-0'>
       { /*<Image src={"/logo-breaking-news.png"} alt="Logo" width={128} height={56} /> */}
       <div className="max-w-[1100px] w-full mx-auto flex items-center justify-between ">
         <div className="flex">

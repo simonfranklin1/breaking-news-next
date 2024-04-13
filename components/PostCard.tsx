@@ -27,7 +27,7 @@ const PostCard = ({ _id, banner, category, creator, text, title, top, createdAt 
         <Link href={"/posts/" + _id}>
             <div className={`flex w-full h-full ${top ? "lg:flex-row flex-col lg:gap-12 sm:gap-4" : "flex-col gap-6"} group`}>
 
-                <div className={`${top ? "lg:w-[50%] w-full lg:h-full h-[350px]" : "w-full min-h-[255px]"} rounded-xl overflow-hidden`}>
+                <div className={`${top ? "lg:w-[50%] w-full lg:h-full h-[300px]" : "w-full min-h-[255px]"} rounded-xl overflow-hidden`}>
                     <img src={banner} alt="Banner" className="w-full h-full object-cover group-hover:scale-105 duration-300" />
                 </div>
 

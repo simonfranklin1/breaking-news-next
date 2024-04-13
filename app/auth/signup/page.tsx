@@ -8,8 +8,7 @@ import { z } from "zod";
 import Link from "next/link";
 import { createNewUser } from "@/utils/utils";
 import { useEffect, useState } from "react";
-import { FcGoogle } from "react-icons/fc";
-import { signIn, useSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
 const SignInPage = () => {

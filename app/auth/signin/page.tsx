@@ -10,7 +10,6 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { toast } from "react-hot-toast";
-import { FcGoogle } from "react-icons/fc";
 
 const SignInPage = () => {
     const { register, handleSubmit, formState: { errors } } = useForm<z.infer<typeof signInSchema>>({ resolver: zodResolver(signInSchema) });

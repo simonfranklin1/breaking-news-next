@@ -4,7 +4,7 @@ import { MdOutlineUnsubscribe } from "react-icons/md";
 
 const Footer = () => {
     return (
-        <section className='w-full max-w-[1100px] mx-auto px-4 sm:px-8 lg:px-0 flex flex-col gap-12 py-12'>
+        <section className='w-full max-w-[1100px] mx-auto px-4 sm:px-8 xl:px-0 flex flex-col gap-12 py-12'>
             <div className="w-full bg-slate-100 py-12 flex flex-col sm:flex-row gap-4 items-center justify-between rounded-xl px-7">
                 <div className="sm:max-w-[50%]">
                     <div className="sm:text-xl font-semibold opacity-50 mb-5">

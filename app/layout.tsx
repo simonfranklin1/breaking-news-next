@@ -22,10 +22,11 @@ export default function RootLayout({
             background: "rgb(51 65 81)",
             color: "#FFF"
           }
-        }} />
+        }} 
+      />
         <Provider>
           <Navbar />
-          <div className="max-w-[1100px] mx-auto px-6 sm:px-8 lg:px-0 min-h-screen">
+          <div className="max-w-[1100px] mx-auto px-6 sm:px-8 xl:px-0 min-h-screen">
             {children}
           </div>
           <Footer />
