@@ -172,7 +172,6 @@ const page = ({ params }: any) => {
                             post={post}
                             saved={saved}
                             setOpenMenu={setOpenMenu}
-                            setSaved={setSaved}
                             user={session.user}
                         />
 
