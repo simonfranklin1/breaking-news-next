@@ -1,6 +1,7 @@
 import { FaFacebook, FaLinkedinIn, FaTwitter, FaInstagramSquare } from "react-icons/fa";
 import { Button } from ".";
 import { MdOutlineUnsubscribe } from "react-icons/md";
+import Link from "next/link";
 
 const Footer = () => {
     return (
@@ -56,9 +57,9 @@ const Footer = () => {
                             <div className="lg:text-xl text-lg font-semibold text-black">
                                 Tecnologia
                             </div>
-                            <a href="#" target="_blank" className="hover:text-blue-700">iPhone</a>
-                            <a href="#" target="_blank" className="hover:text-blue-700">Samsung</a>
-                            <a href="#" target="_blank" className="hover:text-blue-700">Notebook</a>
+                            <Link href="#" className="hover:text-blue-700">iPhone</Link>
+                            <Link href="#" className="hover:text-blue-700">Samsung</Link>
+                            <Link href="#" className="hover:text-blue-700">Notebook</Link>
                         </div>
                     </div>
                     <div className="flex-1">
@@ -66,9 +67,9 @@ const Footer = () => {
                             <div className="lg:text-xl text-lg font-semibold text-black">
                                 Esporte
                             </div>
-                            <a href="#" target="_blank" className="hover:text-blue-700">Futebol</a>
-                            <a href="#" target="_blank" className="hover:text-blue-700">Basquete</a>
-                            <a href="#" target="_blank" className="hover:text-blue-700">Tênis</a>
+                            <Link href="#" className="hover:text-blue-700">Futebol</Link>
+                            <Link href="#" className="hover:text-blue-700">Basquete</Link>
+                            <Link href="#" className="hover:text-blue-700">Tênis</Link>
                         </div>
                     </div>
                     <div className="flex-1">
@@ -76,9 +77,9 @@ const Footer = () => {
                             <div className="lg:text-xl text-lg font-semibold text-black">
                                 Animes
                             </div>
-                            <a href="#" target="_blank" className="hover:text-blue-700">Dragon Ball</a>
-                            <a href="#" target="_blank" className="hover:text-blue-700">One Piece</a>
-                            <a href="#" target="_blank" className="hover:text-blue-700">Naruto</a>
+                            <Link href="#" className="hover:text-blue-700">Dragon Ball</Link>
+                            <Link href="#" className="hover:text-blue-700">One Piece</Link>
+                            <Link href="#" className="hover:text-blue-700">Naruto</Link>
                         </div>
                     </div>
                     <div className="flex-1">
@@ -86,9 +87,9 @@ const Footer = () => {
                             <div className="lg:text-xl text-lg font-semibold text-black">
                                 Viagens
                             </div>
-                            <a href="#" target="_blank" className="hover:text-blue-700">Destinos</a>
-                            <a href="#" target="_blank" className="hover:text-blue-700">Vídeos</a>
-                            <a href="#" target="_blank" className="hover:text-blue-700">Novidades</a>
+                            <Link href="#" className="hover:text-blue-700">Destinos</Link>
+                            <Link href="#" className="hover:text-blue-700">Vídeos</Link>
+                            <Link href="#" className="hover:text-blue-700">Novidades</Link>
                         </div>
                     </div>
                     <div className="flex-1">
@@ -96,9 +97,9 @@ const Footer = () => {
                             <div className="lg:text-xl text-lg font-semibold text-black">
                                 Entretenimento
                             </div>
-                            <a href="#" target="_blank" className="hover:text-blue-700">Filmes</a>
-                            <a href="#" target="_blank" className="hover:text-blue-700">Arte</a>
-                            <a href="#" target="_blank" className="hover:text-blue-700">Televisão</a>
+                            <Link href="#" className="hover:text-blue-700">Filmes</Link>
+                            <Link href="#" className="hover:text-blue-700">Arte</Link>
+                            <Link href="#" className="hover:text-blue-700">Televisão</Link>
                         </div>
                     </div>
                     <div className="flex-1">
@@ -106,9 +107,9 @@ const Footer = () => {
                             <div className="lg:text-xl text-lg font-semibold text-black">
                                 Clima
                             </div>
-                            <a href="#" target="_blank" className="hover:text-blue-700">Temperatura</a>
-                            <a href="#" target="_blank" className="hover:text-blue-700">Previsão</a>
-                            <a href="#" target="_blank" className="hover:text-blue-700">Terremoto</a>
+                            <Link href="#" className="hover:text-blue-700">Temperatura</Link>
+                            <Link href="#" className="hover:text-blue-700">Previsão</Link>
+                            <Link href="#" className="hover:text-blue-700">Terremoto</Link>
                         </div>
                     </div>
                     <div className="flex-1">
@@ -116,9 +117,9 @@ const Footer = () => {
                             <div className="lg:text-xl text-lg font-semibold text-black">
                                 Cultura
                             </div>
-                            <a href="#" target="_blank" className="hover:text-blue-700">Culinária</a>
-                            <a href="#" target="_blank" className="hover:text-blue-700">História</a>
-                            <a href="#" target="_blank" className="hover:text-blue-700">Costumes</a>
+                            <Link href="#" className="hover:text-blue-700">Culinária</Link>
+                            <Link href="#" className="hover:text-blue-700">História</Link>
+                            <Link href="#" className="hover:text-blue-700">Costumes</Link>
                         </div>
                     </div>
                     <div className="flex-1">
@@ -126,9 +127,9 @@ const Footer = () => {
                             <div className="lg:text-xl text-lg font-semibold text-black">
                                 Mais
                             </div>
-                            <a href="#" target="_blank" className="hover:text-blue-700">Design</a>
-                            <a href="#" target="_blank" className="hover:text-blue-700">Investimento</a>
-                            <a href="#" target="_blank" className="hover:text-blue-700">Nos apoie</a>
+                            <Link href="#" className="hover:text-blue-700">Design</Link>
+                            <Link href="#" className="hover:text-blue-700">Investimento</Link>
+                            <Link href="#" className="hover:text-blue-700">Nos apoie</Link>
                         </div>
                     </div>
                 </div>
