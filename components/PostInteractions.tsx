@@ -1,5 +1,7 @@
+"use client"
+
 import { likePostI, postCommentI } from '@/types/types';
-import React, { FormEvent } from 'react';
+import React, { FormEvent, useRef } from 'react';
 import { FaRegHeart, FaHeart } from "react-icons/fa";
 import { FaRegComment } from "react-icons/fa6";
 import Link from 'next/link';
@@ -67,8 +69,12 @@ interface PostInteractionProps {
 
 const PostInteractions = ({ likes, comments, alreadyLiked, handleLike, handleComment, user, id, comment, setComment, setComments }: PostInteractionProps) => {
     const handleType = () => {
-        document.getElementById("commentInput")?.focus();
+        ref.current?.focus()
     }
+
+    const ref = useRef<HTMLInputElement>(null);
+
+    const sortedComments = [...comments].sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
 
     return (
         <>
@@ -84,7 +90,7 @@ const PostInteractions = ({ likes, comments, alreadyLiked, handleLike, handleCom
             </div>
 
             <form onSubmit={handleComment} className='relative'>
-                <input type="text" id='commentInput' placeholder={`Adicionar comentário como ${user.name}`} value={comment} onChange={(e) => setComment(e.target.value)} className='px-2 py-3 rounded-[25px] border-2 border-transparent focus:border-blue-700 outline-none bg-slate-50 w-full' />
+                <input type="text" ref={ref} placeholder={`Adicionar comentário como ${user.name}`} value={comment} onChange={(e) => setComment(e.target.value)} className='px-2 py-3 rounded-[25px] border-2 border-transparent focus:border-blue-700 outline-none bg-slate-50 w-full' />
                 <button className={`text-blue-500 font-semibold absolute top-2 right-2 text-4xl ${comment.length ? "block" : "hidden"}`} type='submit'>
                     <FaArrowCircleDown />
                 </button>
@@ -100,7 +106,7 @@ const PostInteractions = ({ likes, comments, alreadyLiked, handleLike, handleCom
                             Nenhum comentário
                         </div>
                     ) || (
-                        comments.map((comment) => (
+                        sortedComments.map((comment) => (
                             <PostComment key={comment.idComment} comment={comment} user={user} postId={`${id}`} comments={comments} setComments={setComments} />
                         ))
                     )

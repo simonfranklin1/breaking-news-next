@@ -82,7 +82,6 @@ const page = ({ params }: any) => {
                 .then((response) => {
                     toast.success(response.message);
                     setComments([
-                        ...comments,
                         {
                             comment: comment,
                             avatar: `${session?.user.image}`,
@@ -90,7 +89,8 @@ const page = ({ params }: any) => {
                             userId: `${session?.user.id}`,
                             username: `${session?.user.name}`,
                             createdAt: new Date()
-                        }
+                        },
+                        ...comments
                     ])
                     setComment("");
                 }).catch(() => {
