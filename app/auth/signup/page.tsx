@@ -57,12 +57,16 @@ const SignInPage = () => {
                     {errors.password?.message && <p className="text-red-600">{`${errors.password?.message}`}</p>}
                 </label>
                 <Button type='submit' text={ !loading ? "CRIAR" : "CRIANDO..."} styles={ loading ? " pointer-events-none" : "" } />
-                
+                <div className="flex gap-2 items-center">
+                    <hr className="text-gray-400 w-full h-[1px]" />
+                    Ou
+                    <hr className="text-gray-400 w-full h-[1px]" />
+                </div>
                 <ContinueWithGoogle />
             </div>
 
             <Link href={"/auth/signin"} className="font-medium text-center">
-                Já tem uma conta? <span className="text-blue-700">Faça Login</span>
+                Já tem uma conta? <span className="text-blue-700 hover:underline">Faça Login</span>
             </Link>
         </form>
     )

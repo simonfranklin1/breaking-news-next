@@ -62,11 +62,17 @@ const SignInPage = () => {
                 </label>
                 <Button type='submit' text={loading ? "ENTRANDO..." : "ENTRAR"} />
 
+                <div className="flex gap-2 items-center">
+                    <hr className="text-gray-400 w-full h-[1px]" />
+                    Ou
+                    <hr className="text-gray-400 w-full h-[1px]" />
+                </div>
+
                 <ContinueWithGoogle />
             </div>
 
             <Link href={"/auth/signup"} className="font-medium text-center">
-                Não tem uma conta? <span className="text-blue-700">Cadastre-se</span>
+                Não tem uma conta? <span className="text-blue-700 hover:underline">Cadastre-se</span>
             </Link>
         </form>
     )
