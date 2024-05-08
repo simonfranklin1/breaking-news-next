@@ -65,7 +65,7 @@ const SignInPage = () => {
                 <ContinueWithGoogle />
             </div>
 
-            <Link href={"/auth/signin"} className="font-medium text-center">
+            <Link href={"/signin"} className="font-medium text-center">
                 Já tem uma conta? <span className="text-blue-700 hover:underline">Faça Login</span>
             </Link>
         </form>

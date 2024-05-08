@@ -89,7 +89,7 @@ const Navbar = () => {
                 </div>
               </div>
             ) || (
-              <Link href={"/auth/signin"}>
+              <Link href={"/signin"}>
                 <Button text="ENTRAR" type="button" />
               </Link>
             )

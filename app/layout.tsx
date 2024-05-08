@@ -25,11 +25,7 @@ export default function RootLayout({
         }} 
       />
         <Provider>
-          <Navbar />
-          <div className="max-w-[1100px] mx-auto px-6 sm:px-8 xl:px-0 min-h-screen">
-            {children}
-          </div>
-          <Footer />
+          {children}
         </Provider>
       </body>
     </html>

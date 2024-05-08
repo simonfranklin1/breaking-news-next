@@ -21,7 +21,7 @@ const Profile = ({ name, username, avatar, posts, saved, show, setShow }: Profil
             <div className="flex flex-col gap-14">
                 <div className="flex justify-start items-center w-full gap-8">
                     <div style={{ backgroundImage: `url(${avatar})`, backgroundRepeat: "no-repeat", backgroundSize: "cover" }} className="w-40 h-40 relative rounded-full">
-                        <Link href={"auth/edit"} className={`absolute bottom-3 right-3 bg-blue-700 w-7 h-7 rounded-full text-white ${setShow ? "flex-center" : "hidden" }`}>
+                        <Link href={"/edit"} className={`absolute bottom-3 right-3 bg-blue-700 w-7 h-7 rounded-full text-white ${setShow ? "flex-center" : "hidden" }`}>
                             <FaRegEdit />
                         </Link>
                     </div>
