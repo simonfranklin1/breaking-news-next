@@ -32,7 +32,7 @@ const Navbar = () => {
               Sobre
             </Link>
             <Link href={"/users"} className="text-gray-600 font-semibold duration-200 hover:text-blue-700">
-              Criadores
+              Top Creators
             </Link>
             <div className="relative cursor-pointer" onClick={() => setOpenNewsMenu(prev => !prev)}>
               <div className="text-gray-600 font-semibold duration-200 hover:text-blue-700 relative">Notícias</div>

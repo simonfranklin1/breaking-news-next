@@ -30,7 +30,7 @@ const MobileNavbar = ({ open, setOpen, username, userImage }: { open: boolean, s
                         Sobre
                     </Link>
                     <Link href={"/users"} className="text-gray-600 font-semibold text-xl" onClick={() => setOpen(false)}>
-                        Criadores
+                        Top Creators
                     </Link>
                     <Link href={"/posts"} className="text-gray-600 font-semibold text-xl" onClick={() => setOpen(false)}>
                         Notícias
