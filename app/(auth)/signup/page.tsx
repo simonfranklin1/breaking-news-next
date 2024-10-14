@@ -3,7 +3,7 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { signUpSchema } from '@/utils/schema';
-import { Button, ContinueWithGoogle } from '@/components';
+import { Button, ContinueWithGoogleButton } from '@/components';
 import { z } from "zod";
 import Link from "next/link";
 import { createNewUser } from "@/utils/utils";
@@ -62,7 +62,7 @@ const SignInPage = () => {
                     Ou
                     <hr className="text-gray-400 w-full h-[1px]" />
                 </div>
-                <ContinueWithGoogle />
+                <ContinueWithGoogleButton />
             </div>
 
             <Link href={"/signin"} className="font-medium text-center">

@@ -30,14 +30,14 @@ export const createPost = async (title: string, text: string, banner: string, us
 }
 
 export const findLatestPosts = async (): Promise<NewsI[]> => {
-  const res = await fetch("api/post");
+  const res = await fetch(`${process.env.NEXTAUTH_URL}/api/post`, { cache: 'no-store' });
   const data: NewsI[] = await res.json();
 
   return data;
 }
 
 export const findRatedPosts = async (): Promise<NewsI[]> => {
-  const res = await fetch("api/post/rated");
+  const res = await fetch(`${process.env.NEXTAUTH_URL}/api/post/rated`, { cache: 'no-store' });
   const data: NewsI[] = await res.json();
 
   return data;

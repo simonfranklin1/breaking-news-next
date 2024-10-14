@@ -3,7 +3,7 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { signInSchema } from '@/utils/schema';
-import { Button, ContinueWithGoogle } from '@/components';
+import { Button, ContinueWithGoogleButton } from '@/components';
 import { z } from "zod";
 import { signIn, useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
@@ -68,7 +68,7 @@ const SignInPage = () => {
                     <hr className="text-gray-400 w-full h-[1px]" />
                 </div>
 
-                <ContinueWithGoogle />
+                <ContinueWithGoogleButton />
             </div>
 
             <Link href={"/signup"} className="font-medium text-center">
